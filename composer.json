@@ -1,0 +1,42 @@
+{
+    "name": "sonata-project/comment-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony SonataCommentBundle",
+    "keywords": ["comment", "sonata"],
+    "homepage": "http://sonata-project.org/bundles/comment",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Rabaix",
+            "email": "thomas.rabaix@sonata-project.org",
+            "homepage": "http://sonata-project.org"
+        },
+        {
+            "name": "Sonata Community",
+            "homepage": "https://github.com/sonata-project/SonataCommentBundle/contributors"
+        }
+    ],
+    "require": {
+        "symfony/http-foundation": "~2.2",
+        "symfony/form": "~2.2",
+        "symfony/security": "~2.2",
+        "symfony/console": "~2.2",
+        "sonata-project/core-bundle": "~2.2",
+        "sonata-project/admin-bundle": "~2.2,>=2.2.9",
+        "sonata-project/doctrine-extensions": "~1.0",
+        "sonata-project/easy-extends-bundle": "~2.1",
+        "friendsofsymfony/comment-bundle": "2.*@dev"
+    },
+    "suggest": {
+        "sonata-project/doctrine-orm-admin-bundle": "~2.2"
+    },
+    "autoload": {
+        "psr-0": { "Sonata\\CommentBundle": "" }
+    },
+    "target-dir": "Sonata/CommentBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2.x-dev"
+        }
+    }
+}
