@@ -26,6 +26,8 @@ abstract class CommentAdmin extends Admin
         $formMapper
             ->add('id')
             ->add('body')
+            ->add('email')
+            ->add('website')
             ->add('state')
             ->add('createdAt')
         ;
@@ -39,8 +41,9 @@ abstract class CommentAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('body')
+            ->add('email')
+            ->add('website')
             ->add('state')
-            ->add('createdAt')
         ;
     }
 

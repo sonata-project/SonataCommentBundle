@@ -54,7 +54,7 @@ abstract class ThreadAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('permalink', 'text')
-            ->add('isCommentable', 'boolean')
+            ->add('isCommentable', 'boolean', array('editable' => true))
         ;
     }
 
@@ -72,13 +72,13 @@ abstract class ThreadAdmin extends Admin
         $id = $admin->getRequest()->get('id');
 
         $menu->addChild(
-            $this->trans('edit'),
+            $this->trans('sonata_comment_admin_edit', array(), 'SonataCommentBundle'),
             array('uri' => $admin->generateUrl('edit', array('id' => $id)))
         );
 
         $menu->addChild(
-            $this->trans('view_comments'),
-            array('uri' => $admin->generateUrl('fos.comment.admin.comment.list', array('id' => $id)))
+            $this->trans('sonata_comment_admin_view_comments', array(), 'SonataCommentBundle'),
+            array('uri' => $admin->generateUrl('sonata.comment.admin.comment.list', array('id' => $id)))
         );
     }
 }

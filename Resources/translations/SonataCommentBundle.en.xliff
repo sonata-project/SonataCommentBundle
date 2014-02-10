@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="" >
+        <body>
+            <trans-unit id="conversation">
+                <source>conversation</source>
+                <target>Conversation</target>
+            </trans-unit>
+            <trans-unit id="form_label_body">
+                <source>form_label_body</source>
+                <target>Your message</target>
+            </trans-unit>
+            <trans-unit id="form_label_website">
+                <source>form_label_website</source>
+                <target>Your website URL</target>
+            </trans-unit>
+            <trans-unit id="form_label_email">
+                <source>form_label_email</source>
+                <target>Your email address</target>
+            </trans-unit>
+            <trans-unit id="sonata_comment_admin_edit">
+                <source>sonata_comment_admin_edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="sonata_comment_admin_view_comments">
+                <source>sonata_comment_admin_view_comments</source>
+                <target>View comments</target>
+            </trans-unit>
+            <trans-unit id="form.label_id">
+                <source>form.label_id</source>
+                <target>Identifier</target>
+            </trans-unit>
+            <trans-unit id="form.label_body">
+                <source>form.label_body</source>
+                <target>Message</target>
+            </trans-unit>
+            <trans-unit id="form.label_email">
+                <source>form.label_email</source>
+                <target>Email address</target>
+            </trans-unit>
+            <trans-unit id="form.label_website">
+                <source>form.label_website</source>
+                <target>Website URL</target>
+            </trans-unit>
+            <trans-unit id="form.label_state">
+                <source>form.label_state</source>
+                <target>State</target>
+            </trans-unit>
+            <trans-unit id="form.label_created_at">
+                <source>form.label_created_at</source>
+                <target>Creation date</target>
+            </trans-unit>
+            <trans-unit id="form.label_permalink">
+                <source>form.label_permalink</source>
+                <target>Permalink</target>
+            </trans-unit>
+            <trans-unit id="form.label_is_commentable">
+                <source>form.label_is_commentable</source>
+                <target>Comments enabled</target>
+            </trans-unit>
+            <trans-unit id="list.label_id">
+                <source>list.label_id</source>
+                <target>Identifier</target>
+            </trans-unit>
+            <trans-unit id="list.label_body">
+                <source>list.label_body</source>
+                <target>Message</target>
+            </trans-unit>
+            <trans-unit id="list.label_created_at">
+                <source>list.label_created_at</source>
+                <target>Creation date</target>
+            </trans-unit>
+            <trans-unit id="list.label_permalink">
+                <source>list.label_permalink</source>
+                <target>Permalink</target>
+            </trans-unit>
+            <trans-unit id="list.label_is_commentable">
+                <source>list.label_is_commentable</source>
+                <target>Comments enabled</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_thread_list">
+                <source>breadcrumb.link_thread_list</source>
+                <target>Conversation</target>
+            </trans-unit>
+            <trans-unit id="breadcrumb.link_comment_list">
+                <source>breadcrumb.link_comment_list</source>
+                <target>Comments list</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -38,6 +38,7 @@ files:
     public function registerbundles()
     {
         return array(
+            new FOS\CommentBundle\FOSCommentBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\CommentBundle\SonataCommentBundle(),
@@ -57,7 +58,10 @@ Here is the configuration you will need to add:
 
     # app/config/config.yml
     sonata_comment:
-        manager_type: orm # can be orm or mongodb
+        manager_type: orm # can be 'orm' or 'mongodb'
+        class:
+            comment: Application\Sonata\CommentBundle\Entity\Comment # This is an optional value
+            thread: Application\Sonata\CommentBundle\Entity\Thread   # This is an optional value
 
 Doctrine Configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -68,7 +72,14 @@ Then add these bundles in the config mapping definition (or enable `auto_mapping
     # app/config/config.yml
 
     fos_comment:
-        ... TO COMPLETE ...
+        db_driver: orm
+        class:
+            model:
+                comment: Application\Sonata\CommentBundle\Entity\Comment
+                thread: Application\Sonata\CommentBundle\Entity\Thread
+        form:
+            comment:
+                type: sonata_comment_comment
 
     doctrine:
         orm:

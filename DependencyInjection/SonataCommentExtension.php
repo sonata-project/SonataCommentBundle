@@ -18,6 +18,8 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Config\Definition\Processor;
 
+use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
+
 /**
  * Class SonataCommentExtension
  *
@@ -37,14 +39,21 @@ class SonataCommentExtension extends Extension
         $config = $processor->processConfiguration($configuration, $configs);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('form.xml');
 
         $bundles = $container->getParameter('kernel.bundles');
 
         if (isset($bundles['SonataAdminBundle'])) {
-            $loader->load('admin.xml');
+            $loader->load(sprintf('admin_%s.xml', $config['manager_type']));
         }
 
         $config = $this->addDefaults($config);
+
+        $this->registerDoctrineMapping($config, $container);
+
+        if (isset($bundles['SonataUserBundle'])) {
+            $this->registerSonataUserDoctrineMapping($config, $container);
+        }
 
         $this->configureAdminClass($config, $container);
         $this->configureClass($config, $container);
@@ -126,5 +135,69 @@ class SonataCommentExtension extends Extension
     {
         $container->setParameter('sonata.comment.admin.comment.translation_domain', $config['admin']['comment']['translation']);
         $container->setParameter('sonata.comment.admin.thread.translation_domain', $config['admin']['thread']['translation']);
+    }
+
+    /**
+     * @param array            $config    A configuration array
+     * @param ContainerBuilder $container Symfony container builder
+     */
+    public function registerDoctrineMapping(array $config, ContainerBuilder $container)
+    {
+        foreach ($config['class'] as $class) {
+            if (!class_exists($class)) {
+                return;
+            }
+        }
+
+        $collector = DoctrineCollector::getInstance();
+
+        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
+            'fieldName'       => 'thread',
+            'targetEntity'    => $config['class']['thread'],
+            'cascade'         => array()
+        ));
+
+        if ('orm' === $config['manager_type']) {
+            $modelType = 'entity';
+        } elseif ('mongodb' === $config['manager_type']) {
+            $modelType = 'document';
+        }
+
+        $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
+
+        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
+            'fieldName'       => 'author',
+            'targetEntity'    => $userClass,
+            'cascade'         => array()
+        ));
+    }
+
+    /**
+     * @param array            $config    A configuration array
+     * @param ContainerBuilder $container Symfony container builder
+     */
+    public function registerSonataUserDoctrineMapping(array $config, ContainerBuilder $container)
+    {
+        foreach ($config['class'] as $class) {
+            if (!class_exists($class)) {
+                return;
+            }
+        }
+
+        $collector = DoctrineCollector::getInstance();
+
+        if ('orm' === $config['manager_type']) {
+            $modelType = 'entity';
+        } elseif ('mongodb' === $config['manager_type']) {
+            $modelType = 'document';
+        }
+
+        $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
+
+        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
+            'fieldName'       => 'author',
+            'targetEntity'    => $userClass,
+            'cascade'         => array()
+        ));
     }
 }

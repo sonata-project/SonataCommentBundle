@@ -33,9 +33,17 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('sonata_comment');
 
         $supportedManagerTypes = array('orm', 'mongodb');
+        $supportedProviders = array('fos_comment');
 
         $rootNode
             ->children()
+                ->scalarNode('provider')
+                    ->defaultValue('fos_comment')
+                    ->validate()
+                        ->ifNotInArray($supportedProviders)
+                        ->thenInvalid('The provider %s is not supported. Please choose one of '.json_encode($supportedProviders))
+                    ->end()
+                ->end()
                 ->scalarNode('manager_type')
                     ->defaultValue('orm')
                     ->validate()

@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Sonata\CommentBundle\Tests\Entity;
+namespace Sonata\CommentBundle\Tests\Document;
 
-use Sonata\CommentBundle\Entity\BaseThread;
-use Sonata\CommentBundle\Entity\BaseComment;
+use Sonata\CommentBundle\Document\BaseThread;
+use Sonata\CommentBundle\Document\BaseComment;
 
 /**
- * This is the entity BaseComment test class
+ * This is the document BaseComment test class
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */

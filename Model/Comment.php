@@ -14,12 +14,11 @@ namespace Sonata\CommentBundle\Model;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 use FOS\CommentBundle\Entity\Comment as AbstractedComment;
-use FOS\CommentBundle\Model\SignedCommentInterface;
 
 /**
  * Comment entity
  */
-class Comment extends AbstractedComment implements SignedCommentInterface
+class Comment extends AbstractedComment
 {
     /**
      * Identifier
@@ -36,31 +35,83 @@ class Comment extends AbstractedComment implements SignedCommentInterface
     protected $thread;
 
     /**
-     * @var UserInterface
+     * Comment author email address
+     *
+     * @var string
      */
-    protected $author;
+    protected $email;
 
     /**
-     * {@inheritdoc}
+     * Comment author website url
+     *
+     * @var string
      */
-    public function setAuthor(UserInterface $author)
+    protected $website;
+
+    /**
+     * Comment evaluation note
+     *
+     * @var float
+     */
+    protected $note;
+
+    /**
+     * Sets comment author email address
+     *
+     * @param $email
+     */
+    public function setEmail($email)
     {
-        $this->author = $author;
+        $this->email = $email;
     }
 
     /**
-     * {@inheritdoc}
+     * Returns comment author email address
+     *
+     * @return string
      */
-    public function getAuthor()
+    public function getEmail()
     {
-        return $this->author;
+        return $this->email;
     }
 
     /**
-     * {@inheritdoc}
+     * Sets comment author website url
+     *
+     * @param $website
      */
-    public function getAuthorName()
+    public function setWebsite($website)
     {
-        return $this->getAuthor() ? $this->getAuthor()->getUsername() : 'Anonymous';
+        $this->website = $website;
+    }
+
+    /**
+     * Returns comment author website url
+     *
+     * @return string
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * Sets comment note
+     *
+     * @param $note
+     */
+    public function setNote($note)
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * Returns comment note
+     *
+     * @return float
+     */
+    public function getNote()
+    {
+        return $this->note;
     }
 }

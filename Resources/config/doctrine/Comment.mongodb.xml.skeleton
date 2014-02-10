@@ -4,14 +4,11 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Sonata\CommentBundle\Entity\Comment" table="sonata_comment_comment">
+    <entity name="Application\Sonata\CommentBundle\Document\Comment" table="sonata_comment_comment">
 
         <id name="id" column="id" type="integer">
             <generator strategy="AUTO" />
         </id>
-
-        <many-to-one target-entity="Sonata\CommentBundle\Entity\Thread" field="thread" />
-        <many-to-one target-entity="Sonata\UserBundle\Entity\User"      field="author" />
 
     </entity>
 
