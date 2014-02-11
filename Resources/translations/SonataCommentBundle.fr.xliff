@@ -94,6 +94,14 @@
                 <source>list.label_note</source>
                 <target>Note</target>
             </trans-unit>
+            <trans-unit id="list.label_state">
+                <source>list.label_state</source>
+                <target>État</target>
+            </trans-unit>
+            <trans-unit id="list.label_num_comments">
+                <source>list.label_num_comments</source>
+                <target>Nombre de commentaires</target>
+            </trans-unit>
             <trans-unit id="breadcrumb.link_thread_list">
                 <source>breadcrumb.link_thread_list</source>
                 <target>Conversation</target>
@@ -101,6 +109,18 @@
             <trans-unit id="breadcrumb.link_comment_list">
                 <source>breadcrumb.link_comment_list</source>
                 <target>Liste des commentaires</target>
+            </trans-unit>
+            <trans-unit id="moderate">
+                <source>moderate</source>
+                <target>Modéré</target>
+            </trans-unit>
+            <trans-unit id="invalid">
+                <source>invalid</source>
+                <target>Invalide</target>
+            </trans-unit>
+            <trans-unit id="valid">
+                <source>valid</source>
+                <target>Valide</target>
             </trans-unit>
         </body>
     </file>

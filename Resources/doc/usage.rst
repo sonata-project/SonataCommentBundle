@@ -14,6 +14,12 @@ Comment
     - ``note`` property: allows you to add a note to your comments,
     - ``private`` property: allows you to flag a comment as private (will not appear publicly).
 
+A comment can have a state from the following 3 states labels:
+
+    - ``moderate``: This is a comment awaiting for moderation,
+    - ``valid``: This is a valid comment message,
+    - ``invalid``: This is an invalid/refused comment message.
+
 Thread
 ^^^^^^
 

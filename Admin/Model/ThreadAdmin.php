@@ -54,6 +54,7 @@ abstract class ThreadAdmin extends Admin
         $listMapper
             ->addIdentifier('id')
             ->add('permalink', 'text')
+            ->add('numComments')
             ->add('averageNote')
             ->add('isCommentable', 'boolean', array('editable' => true))
         ;

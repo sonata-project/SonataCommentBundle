@@ -14,5 +14,13 @@
 
             <tag name="form.type" alias="sonata_comment_comment" />
         </service>
+
+        <service id="sonata.comment.form.comment_status_type" class="Sonata\CoreBundle\Form\Type\StatusType">
+            <argument>%sonata.comment.admin.comment.entity%</argument>
+            <argument>getStateList</argument>
+            <argument>sonata_comment_status</argument>
+
+            <tag name="form.type" alias="sonata_comment_status" />
+        </service>
     </services>
 </container>

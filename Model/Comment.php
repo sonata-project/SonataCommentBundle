@@ -21,6 +21,13 @@ use FOS\CommentBundle\Entity\Comment as AbstractedComment;
 class Comment extends AbstractedComment
 {
     /**
+     * Available comment status
+     */
+    const STATUS_MODERATE = 0;
+    const STATUS_INVALID  = 1;
+    const STATUS_VALID    = 2;
+
+    /**
      * Identifier
      *
      * @var int $id
@@ -118,6 +125,32 @@ class Comment extends AbstractedComment
     public function getNote()
     {
         return $this->note;
+    }
+
+    /**
+     * Returns comment state list
+     *
+     * @return array
+     */
+    public static function getStateList()
+    {
+        return array(
+            self::STATUS_MODERATE => 'moderate',
+            self::STATUS_INVALID  => 'invalid',
+            self::STATUS_VALID    => 'valid',
+        );
+    }
+
+    /**
+     * Returns comment state label
+     *
+     * @return null
+     */
+    public function getStateLabel()
+    {
+        $list = self::getStateList();
+
+        return isset($list[$this->getState()]) ? $list[$this->getState()] : null;
     }
 
     /**
