@@ -15,12 +15,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-use FOS\CommentBundle\Form\CommentType as BaseCommentType;
-
 /**
  * This is a FOSCommentBundle overridden form type
  */
-class CommentType extends BaseCommentType
+class CommentType extends AbstractType
 {
     /**
      * Configures a Comment form.
@@ -30,8 +28,6 @@ class CommentType extends BaseCommentType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        parent::buildForm($builder, $options);
-
         $builder
             ->add('website', 'url', array('required' => false))
             ->add('email', 'email', array('required' => false))
@@ -44,5 +40,13 @@ class CommentType extends BaseCommentType
     public function getName()
     {
         return "sonata_comment_comment";
+    }
+
+    /**
+     * @return string
+     */
+    public function getParent()
+    {
+        return "fos_comment_comment";
     }
 }
