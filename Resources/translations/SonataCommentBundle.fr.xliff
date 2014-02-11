@@ -78,6 +78,22 @@
                 <source>list.label_is_commentable</source>
                 <target>Commentaires actifs</target>
             </trans-unit>
+            <trans-unit id="form.label_private">
+                <source>form.label_private</source>
+                <target>Privé</target>
+            </trans-unit>
+            <trans-unit id="list.label_private">
+                <source>list.label_private</source>
+                <target>Privé</target>
+            </trans-unit>
+            <trans-unit id="list.label_average_note">
+                <source>list.label_average_note</source>
+                <target>Note moyenne</target>
+            </trans-unit>
+            <trans-unit id="list.label_note">
+                <source>list.label_note</source>
+                <target>Note</target>
+            </trans-unit>
             <trans-unit id="breadcrumb.link_thread_list">
                 <source>breadcrumb.link_thread_list</source>
                 <target>Conversation</target>

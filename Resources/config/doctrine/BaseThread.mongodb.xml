@@ -6,6 +6,8 @@
 
     <mapped-superclass name="Sonata\CommentBundle\Document\BaseThread">
 
+        <field name="averageNote" column="average_note" type="float" nullable="true" />
+
     </mapped-superclass>
 
 </doctrine-mapping>

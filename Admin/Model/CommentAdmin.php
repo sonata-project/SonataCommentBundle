@@ -25,11 +25,12 @@ abstract class CommentAdmin extends Admin
     {
         $formMapper
             ->add('id')
+            ->add('createdAt')
             ->add('body')
             ->add('email')
             ->add('website')
             ->add('state')
-            ->add('createdAt')
+            ->add('private', 'checkbox')
         ;
     }
 
@@ -44,6 +45,7 @@ abstract class CommentAdmin extends Admin
             ->add('email')
             ->add('website')
             ->add('state')
+            ->add('private')
         ;
     }
 
@@ -56,6 +58,8 @@ abstract class CommentAdmin extends Admin
             ->addIdentifier('id')
             ->add('body', 'text')
             ->add('createdAt', 'datetime')
+            ->add('note', 'float')
+            ->add('private', 'boolean', array('editable' => true))
         ;
     }
 }

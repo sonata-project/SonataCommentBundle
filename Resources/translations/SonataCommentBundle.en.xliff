@@ -58,6 +58,10 @@
                 <source>form.label_is_commentable</source>
                 <target>Comments enabled</target>
             </trans-unit>
+            <trans-unit id="form.label_private">
+                <source>form.label_private</source>
+                <target>Private</target>
+            </trans-unit>
             <trans-unit id="list.label_id">
                 <source>list.label_id</source>
                 <target>Identifier</target>
@@ -77,6 +81,18 @@
             <trans-unit id="list.label_is_commentable">
                 <source>list.label_is_commentable</source>
                 <target>Comments enabled</target>
+            </trans-unit>
+            <trans-unit id="list.label_private">
+                <source>list.label_private</source>
+                <target>Private</target>
+            </trans-unit>
+            <trans-unit id="list.label_average_note">
+                <source>list.label_average_note</source>
+                <target>Average note</target>
+            </trans-unit>
+            <trans-unit id="list.label_note">
+                <source>list.label_note</source>
+                <target>Note</target>
             </trans-unit>
             <trans-unit id="breadcrumb.link_thread_list">
                 <source>breadcrumb.link_thread_list</source>

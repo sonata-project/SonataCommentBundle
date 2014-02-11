@@ -56,6 +56,11 @@ class Comment extends AbstractedComment
     protected $note;
 
     /**
+     * @var bool
+     */
+    protected $private;
+
+    /**
      * Sets comment author email address
      *
      * @param $email
@@ -113,5 +118,25 @@ class Comment extends AbstractedComment
     public function getNote()
     {
         return $this->note;
+    }
+
+    /**
+     * Sets if comment is flagged as private
+     *
+     * @param boolean $private
+     */
+    public function setPrivate($private)
+    {
+        $this->private = $private;
+    }
+
+    /**
+     * Returns if comment is flagged as private
+     *
+     * @return bool
+     */
+    public function isPrivate()
+    {
+        return $this->private;
     }
 }
