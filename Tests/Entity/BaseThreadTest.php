@@ -26,6 +26,7 @@ class BaseThreadTest extends \PHPUnit_Framework_TestCase
         $thread = new BaseThread();
         $thread->setId('my-comment-thread');
         $thread->setCommentable(true);
+        $thread->setAverageNote(0.40);
 
         $lastCommentDate = new \DateTime();
         $thread->setLastCommentAt($lastCommentDate);
@@ -36,6 +37,7 @@ class BaseThreadTest extends \PHPUnit_Framework_TestCase
         // Then
         $this->assertEquals('my-comment-thread', $thread->getId(), 'Should return correct thread identifier');
         $this->assertEquals(true, $thread->getIsCommentable(), 'Should return if thread is commentable');
+        $this->assertEquals(0.40, $thread->getAverageNote(), 'Should return correct average note');
         $this->assertEquals($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
         $this->assertEquals(5, $thread->getNumComments(), 'Should return correct number of comments');
         $this->assertEquals('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
