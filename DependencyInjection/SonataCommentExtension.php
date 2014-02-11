@@ -40,6 +40,7 @@ class SonataCommentExtension extends Extension
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('form.xml');
+        $loader->load('orm.xml');
 
         $bundles = $container->getParameter('kernel.bundles');
 
