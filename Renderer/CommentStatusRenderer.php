@@ -44,7 +44,7 @@ class CommentStatusRenderer implements StatusClassRendererInterface
                 return 'success';
                 break;
             case Comment::STATUS_INVALID:
-                return 'danger';
+                return 'important';
                 break;
             default:
                 return $default;

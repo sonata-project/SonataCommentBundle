@@ -31,3 +31,12 @@ Command
 In order to keep the ``averageNote`` of all threads up-to-date, you can use the following Symfony command:
 
 ``php app/console sonata:comment:sync``
+
+Add a new comment thread
+------------------------
+
+You can add a new comment thread by adding this to your template:
+
+.. code-block:: jinja
+
+    {% include 'SonataCommentBundle:Thread:async.html.twig' with {'id': 'my-custom-thread'} %}
