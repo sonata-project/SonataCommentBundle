@@ -51,7 +51,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
         $comment = $this->getMock('Sonata\CommentBundle\Model\Comment');
         $comment->expects($this->once())->method('getState')->will($this->returnValue(array_rand(Comment::getStateList())));
 
-        $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), array('success', 'info', 'danger'));
+        $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), array('success', 'info', 'important'));
     }
 
     /**

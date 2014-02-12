@@ -158,20 +158,6 @@ class SonataCommentExtension extends Extension
             'targetEntity'    => $config['class']['thread'],
             'cascade'         => array()
         ));
-
-        if ('orm' === $config['manager_type']) {
-            $modelType = 'entity';
-        } elseif ('mongodb' === $config['manager_type']) {
-            $modelType = 'document';
-        }
-
-        $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
-
-        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
-            'fieldName'       => 'author',
-            'targetEntity'    => $userClass,
-            'cascade'         => array()
-        ));
     }
 
     /**
