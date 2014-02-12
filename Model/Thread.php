@@ -12,6 +12,7 @@
 namespace Sonata\CommentBundle\Model;
 
 use FOS\CommentBundle\Entity\Thread as AbstractedThread;
+use Sonata\ClassificationBundle\Model\CategoryInterface;
 
 /**
  * Thread entity
@@ -31,6 +32,13 @@ abstract class Thread extends AbstractedThread
      * @var float
      */
     protected $averageNote;
+
+    /**
+     * A thread category
+     *
+     * @var CategoryInterface
+     */
+    protected $category;
 
     /**
      * @return bool
@@ -68,5 +76,25 @@ abstract class Thread extends AbstractedThread
     public function getAverageNote()
     {
         return $this->averageNote;
+    }
+
+    /**
+     * Sets a thread category
+     *
+     * @param CategoryInterface $category
+     */
+    public function setCategory(CategoryInterface $category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * Returns thread category
+     *
+     * @return CategoryInterface
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

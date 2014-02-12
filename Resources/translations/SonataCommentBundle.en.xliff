@@ -62,6 +62,10 @@
                 <source>form.label_private</source>
                 <target>Private</target>
             </trans-unit>
+            <trans-unit id="form.label_category">
+                <source>form.label_category</source>
+                <target>Category</target>
+            </trans-unit>
             <trans-unit id="list.label_id">
                 <source>list.label_id</source>
                 <target>Identifier</target>
@@ -101,6 +105,10 @@
             <trans-unit id="list.label_num_comments">
                 <source>list.label_num_comments</source>
                 <target>Comments number</target>
+            </trans-unit>
+            <trans-unit id="list.label_category">
+                <source>list.label_category</source>
+                <target>Category</target>
             </trans-unit>
             <trans-unit id="breadcrumb.link_thread_list">
                 <source>breadcrumb.link_thread_list</source>

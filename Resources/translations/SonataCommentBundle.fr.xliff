@@ -58,6 +58,10 @@
                 <source>form.label_is_commentable</source>
                 <target>Commentaires actifs</target>
             </trans-unit>
+            <trans-unit id="form.label_category">
+                <source>form.label_category</source>
+                <target>Catégorie</target>
+            </trans-unit>
             <trans-unit id="list.label_id">
                 <source>list.label_id</source>
                 <target>Identifiant</target>
@@ -101,6 +105,10 @@
             <trans-unit id="list.label_num_comments">
                 <source>list.label_num_comments</source>
                 <target>Nombre de commentaires</target>
+            </trans-unit>
+            <trans-unit id="list.label_category">
+                <source>list.label_category</source>
+                <target>Catégorie</target>
             </trans-unit>
             <trans-unit id="breadcrumb.link_thread_list">
                 <source>breadcrumb.link_thread_list</source>

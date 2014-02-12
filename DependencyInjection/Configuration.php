@@ -56,6 +56,7 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('comment')->cannotBeEmpty()->end()
                         ->scalarNode('thread')->cannotBeEmpty()->end()
+                        ->scalarNode('category')->cannotBeEmpty()->end()
                     ->end()
                 ->end()
 

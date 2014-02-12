@@ -27,8 +27,13 @@ abstract class ThreadAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $formMapper->add('id');
+
+        if (interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
+            $formMapper->add('category');
+        }
+
         $formMapper
-            ->add('id')
             ->add('permalink')
             ->add('isCommentable')
         ;
@@ -39,8 +44,13 @@ abstract class ThreadAdmin extends Admin
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
+        $datagridMapper->add('id');
+
+        if (interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
+            $datagridMapper->add('category');
+        }
+
         $datagridMapper
-            ->add('id')
             ->add('permalink')
             ->add('isCommentable')
         ;
@@ -51,11 +61,15 @@ abstract class ThreadAdmin extends Admin
      */
     protected function configureListFields(ListMapper $listMapper)
     {
+        $listMapper->addIdentifier('id');
+
+        if (interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
+            $listMapper->add('category');
+        }
+
         $listMapper
-            ->addIdentifier('id')
             ->add('permalink', 'text')
             ->add('numComments')
-            ->add('averageNote')
             ->add('isCommentable', 'boolean', array('editable' => true))
         ;
     }

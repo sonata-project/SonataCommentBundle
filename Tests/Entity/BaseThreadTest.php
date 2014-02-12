@@ -20,6 +20,9 @@ use Sonata\CommentBundle\Entity\BaseThread;
  */
 class BaseThreadTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * Tests setters & getters
+     */
     public function testGetters()
     {
         // Given
@@ -41,5 +44,26 @@ class BaseThreadTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
         $this->assertEquals(5, $thread->getNumComments(), 'Should return correct number of comments');
         $this->assertEquals('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
+    }
+
+    /**
+     * Tests category setter & getter if using SonataClassificationBundle
+     */
+    public function testCategoryGetters()
+    {
+        if (!interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
+            $this->markTestSkipped('Sonata\ClassificationBundle\Model\CategoryInterface does not exist');
+        }
+
+        // Given
+        $category = $this->getMock('Sonata\ClassificationBundle\Model\CategoryInterface');
+        $category->expects($this->once())->method('getName')->will($this->returnValue('my-category'));
+
+        $thread = new BaseThread();
+        $thread->setId('my-comment-thread');
+        $thread->setCategory($category);
+
+        // Then
+        $this->assertEquals('my-category', $thread->getCategory()->getName(), 'Should return correct category name');
     }
 }

@@ -45,13 +45,11 @@ class SonataCommentExtension extends Extension
         $loader->load('orm.xml');
         $loader->load('twig.xml');
 
-        $bundles = $container->getParameter('kernel.bundles');
-
-        if (isset($bundles['SonataBlockBundle'])) {
+        if ($this->hasBundle('SonataBlockBundle', $container)) {
             $loader->load('block.xml');
         }
 
-        if (isset($bundles['SonataAdminBundle'])) {
+        if ($this->hasBundle('SonataAdminBundle', $container)) {
             $loader->load(sprintf('admin_%s.xml', $config['manager_type']));
         }
 
@@ -59,7 +57,7 @@ class SonataCommentExtension extends Extension
 
         $this->registerDoctrineMapping($config, $container);
 
-        if (isset($bundles['SonataUserBundle'])) {
+        if ($this->hasBundle('SonataUserBundle', $container)) {
             $this->registerSonataUserDoctrineMapping($config, $container);
         }
 
@@ -85,6 +83,7 @@ class SonataCommentExtension extends Extension
 
         $defaultConfig['class']['comment'] = sprintf('Application\\Sonata\\CommentBundle\\%s\\Comment', $modelType);
         $defaultConfig['class']['thread'] = sprintf('Application\\Sonata\\CommentBundle\\%s\\Thread', $modelType);
+        $defaultConfig['class']['category'] = sprintf('Application\\Sonata\\ClassificationBundle\\%s\\Category', $modelType);
 
         $defaultConfig['admin']['comment']['class'] = sprintf('Sonata\\CommentBundle\\Admin\\%s\\CommentAdmin', $modelType);
         $defaultConfig['admin']['thread']['class'] = sprintf('Sonata\\CommentBundle\\Admin\\%s\\ThreadAdmin', $modelType);
@@ -171,11 +170,35 @@ class SonataCommentExtension extends Extension
 
         $collector = DoctrineCollector::getInstance();
 
+        // Comment
+
         $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
             'fieldName'       => 'thread',
             'targetEntity'    => $config['class']['thread'],
             'cascade'         => array()
         ));
+
+        // Thread
+
+        if ($this->hasBundle('SonataClassificationBundle', $container)) {
+            $collector->addAssociation($config['class']['thread'], 'mapManyToOne', array(
+                'fieldName'    => 'category',
+                'targetEntity' => $config['class']['category'],
+                'cascade'      => array(
+                    'persist',
+                ),
+                'mappedBy'     => null,
+                'joinColumns'  => array(
+                    array(
+                        'name' => 'category_id',
+                        'referencedColumnName' => 'id',
+                        'onDelete' => 'CASCADE',
+                        'onUpdate' => 'CASCADE',
+                    ),
+                ),
+                'orphanRemoval' => false,
+            ));
+        }
     }
 
     /**
@@ -205,5 +228,20 @@ class SonataCommentExtension extends Extension
             'targetEntity'    => $userClass,
             'cascade'         => array()
         ));
+    }
+
+    /**
+     * Returns if a bundle is available
+     *
+     * @param string           $name      A bundle name
+     * @param ContainerBuilder $container Symfony dependency injection container
+     *
+     * @return bool
+     */
+    protected function hasBundle($name, ContainerBuilder $container)
+    {
+        $bundles = $container->getParameter('kernel.bundles');
+
+        return isset($bundles[$name]);
     }
 }
