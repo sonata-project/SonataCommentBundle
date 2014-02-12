@@ -35,8 +35,15 @@ In order to keep the ``averageNote`` of all threads up-to-date, you can use the 
 Add a new comment thread
 ------------------------
 
-You can add a new comment thread by adding this to your template:
+You can add a new comment thread by adding the following code to your template.
+
+If you are using ``SonataBlockBundle``, the following block event is available:
 
 .. code-block:: jinja
 
-    {% include 'SonataCommentBundle:Thread:async.html.twig' with {'id': 'my-custom-thread'} %}
+    {{ sonata_block_render_event('sonata.comment', {'id': 'my-custom-thread-identifier'}) }}
+
+Else, you can use this Twig include:
+
+.. code-block:: jinja
+    {% include 'SonataCommentBundle:Thread:async.html.twig' with {'id': 'my-custom-thread-identifier'} %}
