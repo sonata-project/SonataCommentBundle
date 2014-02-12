@@ -13,6 +13,7 @@ namespace Sonata\CommentBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 use Symfony\Component\Config\FileLocator;
@@ -39,11 +40,16 @@ class SonataCommentExtension extends Extension
         $config = $processor->processConfiguration($configuration, $configs);
 
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('event.xml');
         $loader->load('form.xml');
         $loader->load('orm.xml');
         $loader->load('twig.xml');
 
         $bundles = $container->getParameter('kernel.bundles');
+
+        if (isset($bundles['SonataBlockBundle'])) {
+            $loader->load('block.xml');
+        }
 
         if (isset($bundles['SonataAdminBundle'])) {
             $loader->load(sprintf('admin_%s.xml', $config['manager_type']));
@@ -61,6 +67,7 @@ class SonataCommentExtension extends Extension
         $this->configureClass($config, $container);
         $this->configureController($config, $container);
         $this->configureTranslationDomain($config, $container);
+        $this->configureBlocksEvents($container);
     }
 
     /**
@@ -137,6 +144,17 @@ class SonataCommentExtension extends Extension
     {
         $container->setParameter('sonata.comment.admin.comment.translation_domain', $config['admin']['comment']['translation']);
         $container->setParameter('sonata.comment.admin.thread.translation_domain', $config['admin']['thread']['translation']);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     */
+    public function configureBlocksEvents(ContainerBuilder $container)
+    {
+        $container
+            ->getDefinition('sonata.comment.event.sonata.comment')
+            ->addMethodCall('setBlockService', array(new Reference('sonata.comment.block.thread.async')))
+        ;
     }
 
     /**
