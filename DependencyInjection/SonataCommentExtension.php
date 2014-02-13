@@ -53,40 +53,50 @@ class SonataCommentExtension extends Extension
             $loader->load(sprintf('admin_%s.xml', $config['manager_type']));
         }
 
-        $config = $this->addDefaults($config);
+        if ('orm' === $config['manager_type']) {
+            $modelType = 'entity';
+        } elseif ('mongodb' === $config['manager_type']) {
+            $modelType = 'document';
+        }
+
+        $config = $this->addDefaults($config, $modelType);
 
         $this->registerDoctrineMapping($config, $container);
 
-        if ($this->hasBundle('SonataUserBundle', $container)) {
-            $this->registerSonataUserDoctrineMapping($config, $container);
-        }
-
         $this->configureAdminClass($config, $container);
-        $this->configureClass($config, $container);
+        $this->configureClass($config, $container, $modelType);
         $this->configureController($config, $container);
         $this->configureTranslationDomain($config, $container);
         $this->configureBlocksEvents($container);
+
+        $isSignedInterface = false;
+
+        if ($this->hasBundle('SonataUserBundle', $container)) {
+            $commentClass = $container->getParameter(sprintf('sonata.comment.class.comment.%s', $modelType));
+            $isSignedInterface = is_subclass_of($commentClass, 'FOS\CommentBundle\Model\SignedCommentInterface');
+
+            if ($isSignedInterface) {
+                $this->registerSonataUserDoctrineMapping($config, $container, $modelType);
+            }
+        }
+
+        $container->setParameter('sonata.comment.class.comment.signed', $isSignedInterface);
     }
 
     /**
-     * @param array $config
+     * @param array  $config
+     * @param string $modelType
      *
      * @return array
      */
-    public function addDefaults(array $config)
+    public function addDefaults(array $config, $modelType)
     {
-        if ('orm' === $config['manager_type']) {
-            $modelType = 'Entity';
-        } elseif ('mongodb' === $config['manager_type']) {
-            $modelType = 'Document';
-        }
+        $defaultConfig['class']['comment'] = sprintf('Application\\Sonata\\CommentBundle\\%s\\Comment', ucfirst($modelType));
+        $defaultConfig['class']['thread'] = sprintf('Application\\Sonata\\CommentBundle\\%s\\Thread', ucfirst($modelType));
+        $defaultConfig['class']['category'] = sprintf('Application\\Sonata\\ClassificationBundle\\%s\\Category', ucfirst($modelType));
 
-        $defaultConfig['class']['comment'] = sprintf('Application\\Sonata\\CommentBundle\\%s\\Comment', $modelType);
-        $defaultConfig['class']['thread'] = sprintf('Application\\Sonata\\CommentBundle\\%s\\Thread', $modelType);
-        $defaultConfig['class']['category'] = sprintf('Application\\Sonata\\ClassificationBundle\\%s\\Category', $modelType);
-
-        $defaultConfig['admin']['comment']['class'] = sprintf('Sonata\\CommentBundle\\Admin\\%s\\CommentAdmin', $modelType);
-        $defaultConfig['admin']['thread']['class'] = sprintf('Sonata\\CommentBundle\\Admin\\%s\\ThreadAdmin', $modelType);
+        $defaultConfig['admin']['comment']['class'] = sprintf('Sonata\\CommentBundle\\Admin\\%s\\CommentAdmin', ucfirst($modelType));
+        $defaultConfig['admin']['thread']['class'] = sprintf('Sonata\\CommentBundle\\Admin\\%s\\ThreadAdmin', ucfirst($modelType));
 
         return array_replace_recursive($defaultConfig, $config);
     }
@@ -104,21 +114,16 @@ class SonataCommentExtension extends Extension
     }
 
     /**
-     * @param array                                                   $config
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param array            $config
+     * @param ContainerBuilder $container
+     * @param string           $modelType
      *
      * @return void
      */
-    public function configureClass($config, ContainerBuilder $container)
+    public function configureClass($config, ContainerBuilder $container, $modelType)
     {
-        if ('orm' === $config['manager_type']) {
-            $modelType = 'entity';
-        } elseif ('mongodb' === $config['manager_type']) {
-            $modelType = 'document';
-        }
-
-        $container->setParameter(sprintf('sonata.comment.admin.comment.%s', $modelType), $config['class']['comment']);
-        $container->setParameter(sprintf('sonata.comment.admin.thread.%s', $modelType), $config['class']['thread']);
+        $container->setParameter(sprintf('sonata.comment.class.comment.%s', $modelType), $config['class']['comment']);
+        $container->setParameter(sprintf('sonata.comment.class.thread.%s', $modelType), $config['class']['thread']);
     }
 
     /**
@@ -204,8 +209,9 @@ class SonataCommentExtension extends Extension
     /**
      * @param array            $config    A configuration array
      * @param ContainerBuilder $container Symfony container builder
+     * @param string           $modelType Configuration model type
      */
-    public function registerSonataUserDoctrineMapping(array $config, ContainerBuilder $container)
+    public function registerSonataUserDoctrineMapping(array $config, ContainerBuilder $container, $modelType)
     {
         foreach ($config['class'] as $class) {
             if (!class_exists($class)) {
@@ -214,12 +220,6 @@ class SonataCommentExtension extends Extension
         }
 
         $collector = DoctrineCollector::getInstance();
-
-        if ('orm' === $config['manager_type']) {
-            $modelType = 'entity';
-        } elseif ('mongodb' === $config['manager_type']) {
-            $modelType = 'document';
-        }
 
         $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
 
