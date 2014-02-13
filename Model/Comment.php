@@ -42,6 +42,13 @@ class Comment extends AbstractedComment
     protected $thread;
 
     /**
+     * Comment author name
+     *
+     * @var string
+     */
+    protected $authorName;
+
+    /**
      * Comment author email address
      *
      * @var string
@@ -68,9 +75,29 @@ class Comment extends AbstractedComment
     protected $private;
 
     /**
+     * Sets comment author name
+     *
+     * @param string $authorName
+     */
+    public function setAuthorName($authorName)
+    {
+        $this->authorName = $authorName;
+    }
+
+    /**
+     * Returns comment author name
+     *
+     * @return string
+     */
+    public function getAuthorName()
+    {
+        return $this->authorName;
+    }
+
+    /**
      * Sets comment author email address
      *
-     * @param $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -90,7 +117,7 @@ class Comment extends AbstractedComment
     /**
      * Sets comment author website url
      *
-     * @param $website
+     * @param string $website
      */
     public function setWebsite($website)
     {
@@ -110,7 +137,7 @@ class Comment extends AbstractedComment
     /**
      * Sets comment note
      *
-     * @param $note
+     * @param float $note
      */
     public function setNote($note)
     {
@@ -144,7 +171,7 @@ class Comment extends AbstractedComment
     /**
      * Returns comment state label
      *
-     * @return null
+     * @return integer|null
      */
     public function getStateLabel()
     {

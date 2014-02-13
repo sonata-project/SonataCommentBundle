@@ -9,6 +9,7 @@ In addition to ``FOSCommentBundle`` entities properties, we have added some prop
 Comment
 ^^^^^^^
 
+    - ``authorName`` property: allows you to specify an author name,
     - ``website`` property: allows you to (optionally) store the author website URL,
     - ``email`` property: allows you to (optionally) store the author email address,
     - ``note`` property: allows you to add a note to your comments,

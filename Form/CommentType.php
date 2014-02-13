@@ -21,6 +21,13 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class CommentType extends AbstractType
 {
     /**
+     * Is comment model implementing signed interface?
+     *
+     * @var boolean
+     */
+    protected $isSignedInterface = false;
+
+    /**
      * Configures a Comment form.
      *
      * @param FormBuilderInterface $builder
@@ -28,10 +35,36 @@ class CommentType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        if ($options['add_author']) {
+            $builder->add('authorName', 'text', array('required' => true));
+
+            $this->vars['add_author'] = $options['add_author'];
+        }
+
         $builder
             ->add('website', 'url', array('required' => false))
             ->add('email', 'email', array('required' => false))
         ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            'add_author' => !$this->isSignedInterface
+        ));
+    }
+
+    /**
+     * Sets if comment model is implementing signed interface
+     *
+     * @param boolean $isSignedInterface
+     */
+    public function setIsSignedInterface($isSignedInterface)
+    {
+        $this->isSignedInterface = $isSignedInterface;
     }
 
     /**

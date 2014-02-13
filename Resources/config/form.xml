@@ -11,12 +11,15 @@
     <services>
         <service id="sonata.comment.form.comment_type" class="Sonata\CommentBundle\Form\CommentType">
             <argument>%fos_comment.model.comment.class%</argument>
+            <call method="setIsSignedInterface">
+                <argument>%sonata.comment.class.comment.signed%</argument>
+            </call>
 
             <tag name="form.type" alias="sonata_comment_comment" />
         </service>
 
         <service id="sonata.comment.form.comment_status_type" class="Sonata\CoreBundle\Form\Type\StatusType">
-            <argument>%sonata.comment.admin.comment.entity%</argument>
+            <argument>%sonata.comment.class.comment.entity%</argument>
             <argument>getStateList</argument>
             <argument>sonata_comment_status</argument>
 

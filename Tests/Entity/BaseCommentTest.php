@@ -33,6 +33,7 @@ class BaseCommentTest extends \PHPUnit_Framework_TestCase
         $comment->setEmail('test@example.com');
         $comment->setNote(0.20);
         $comment->setPrivate(true);
+        $comment->setAuthorName('My name');
 
         $date = new \DateTime();
         $comment->setCreatedAt($date);
@@ -41,12 +42,12 @@ class BaseCommentTest extends \PHPUnit_Framework_TestCase
         $comment->setThread($thread);
 
         // Then
-        $this->assertEquals('Anonymous', $comment->getAuthorName(), 'Should return Anonymous as author name');
         $this->assertEquals('Comment text', $comment->getBody(), 'Should return correct comment body');
         $this->assertEquals('http://www.example.com', $comment->getWebsite(), 'Should return correct comment author website');
         $this->assertEquals('test@example.com', $comment->getEmail(), 'Should return correct comment author email address');
         $this->assertEquals(0.20, $comment->getNote(), 'Should return correct comment note');
         $this->assertTrue($comment->isPrivate(), 'Should return that comment is flagged as private');
+        $this->assertEquals('My name', $comment->getAuthorName(), 'Should return correct comment author name');
         $this->assertEquals($date, $comment->getCreatedAt(), 'Should return correct creation date');
 
         $this->assertEquals($thread, $comment->getThread(), 'Should return correct thread');
