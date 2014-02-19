@@ -68,6 +68,7 @@ class SonataCommentExtension extends Extension
         $this->configureController($config, $container);
         $this->configureTranslationDomain($config, $container);
         $this->configureBlocksEvents($container);
+        $this->configureFormTypes($config, $container);
 
         $isSignedInterface = false;
 
@@ -158,6 +159,18 @@ class SonataCommentExtension extends Extension
         $container
             ->getDefinition('sonata.comment.event.sonata.comment')
             ->addMethodCall('setBlockService', array(new Reference('sonata.comment.block.thread.async')))
+        ;
+    }
+
+    /**
+     * @param array            $config    A configuration array
+     * @param ContainerBuilder $container Symfony container builder
+     */
+    public function configureFormTypes(array $config, ContainerBuilder $container)
+    {
+        $container
+            ->getDefinition('sonata.comment.form.comment_status_type')
+            ->replaceArgument(0, $config['class']['comment'])
         ;
     }
 
