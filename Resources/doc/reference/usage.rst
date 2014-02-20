@@ -47,4 +47,5 @@ If you are using ``SonataBlockBundle``, the following block event is available:
 Else, you can use this Twig include:
 
 .. code-block:: jinja
+
     {% include 'SonataCommentBundle:Thread:async.html.twig' with {'id': 'my-custom-thread-identifier'} %}
