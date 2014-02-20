@@ -6,7 +6,7 @@
 
     <mapped-superclass name="Sonata\CommentBundle\Entity\BaseComment">
 
-        <field name="authorName" column="author_name" type="string"  nullable="false" />
+        <field name="authorName" column="author_name" type="string"  nullable="true" />
         <field name="email"      column="email"       type="string"  nullable="true" />
         <field name="website"    column="website"     type="string"  nullable="true" />
         <field name="note"       column="note"        type="float"   nullable="true" />
