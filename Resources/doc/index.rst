@@ -5,10 +5,10 @@ Reference Guide
 ---------------
 
 .. toctree::
-:maxdepth: 1
-       :numbered:
+   :maxdepth: 1
+   :numbered:
 
-       reference/introduction
-       reference/installation
-       reference/usage
-       reference/authenticated_authors
+    Introduction <reference/introduction>
+    Installation <reference/installation>
+    Usage <reference/usage>
+    Authenticated authors <reference/authenticated_authors>
