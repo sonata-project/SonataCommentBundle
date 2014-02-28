@@ -15,6 +15,7 @@ have a similar branch). Follow also their configuration step ; you will find
 everything you need in their installation chapter.
 
 .. note::
+
     If a dependency is already installed somewhere in your project or in
     another dependency, you won't need to install it again.
 
@@ -47,6 +48,7 @@ files:
     }
 
 .. note::
+
     If you already have installed a Sonata dependency, you may ignore the step
     on the modification of the ``autoload.php`` file.
 
