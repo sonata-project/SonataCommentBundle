@@ -18,6 +18,10 @@
                 <source>form_label_email</source>
                 <target>Your email address</target>
             </trans-unit>
+            <trans-unit id="form_label_note">
+                <source>form_label_note</source>
+                <target>Your note</target>
+            </trans-unit>
             <trans-unit id="form_label_author_name">
                 <source>form_label_author_name</source>
                 <target>Your name</target>
@@ -29,6 +33,10 @@
             <trans-unit id="sonata_comment_admin_view_comments">
                 <source>sonata_comment_admin_view_comments</source>
                 <target>View comments</target>
+            </trans-unit>
+            <trans-unit id="sonata_comment_note_given">
+                <source>sonata_comment_note_given</source>
+                <target>Note given: </target>
             </trans-unit>
             <trans-unit id="form.label_id">
                 <source>form.label_id</source>

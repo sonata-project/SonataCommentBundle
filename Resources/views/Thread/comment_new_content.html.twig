@@ -37,20 +37,25 @@
                         {% block fos_comment_form_fields %}
                             <div class="row">
                                 {% if form.authorName is defined %}
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-3">
                                         {{ form_label(form.authorName, 'form_label_author_name'|trans({}, 'SonataCommentBundle'), {'horizontal_label_class': ''}) }}
                                         {{ form_widget(form.authorName, {'horizontal_input_wrapper_class': ''}) }}
                                     </div>
                                 {% endif %}
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     {{ form_label(form.website, 'form_label_website'|trans({}, 'SonataCommentBundle'), {'horizontal_label_class': ''}) }}
                                     {{ form_widget(form.website, {'horizontal_input_wrapper_class': ''}) }}
                                 </div>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     {{ form_label(form.email, 'form_label_email'|trans({}, 'SonataCommentBundle'), {'horizontal_label_class': ''}) }}
                                     {{ form_widget(form.email, {'horizontal_input_wrapper_class': ''}) }}
+                                </div>
+
+                                <div class="col-sm-3">
+                                    {{ form_label(form.note, 'form_label_note'|trans({}, 'SonataCommentBundle'), {'horizontal_label_class': ''}) }}
+                                    {{ form_widget(form.note, {'horizontal_input_wrapper_class': ''}) }}
                                 </div>
                             </div>
                             <div class="row">

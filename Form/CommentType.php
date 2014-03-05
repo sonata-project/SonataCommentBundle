@@ -11,6 +11,7 @@
 
 namespace Sonata\CommentBundle\Form;
 
+use Sonata\CommentBundle\Note\NoteProvider;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -20,6 +21,21 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
  */
 class CommentType extends AbstractType
 {
+    /**
+     * @var NoteProvider
+     */
+    protected $noteProvider;
+
+    /**
+     * Constructor
+     *
+     * @param NoteProvider $noteProvider
+     */
+    public function __construct(NoteProvider $noteProvider)
+    {
+        $this->noteProvider = $noteProvider;
+    }
+
     /**
      * Is comment model implementing signed interface?
      *
@@ -41,6 +57,13 @@ class CommentType extends AbstractType
             $this->vars['add_author'] = $options['add_author'];
         }
 
+        if ($options['show_note']) {
+            $builder->add('note', 'choice', array(
+                'required' => false,
+                'choices'  => $this->noteProvider->getValues()
+            ));
+        }
+
         $builder
             ->add('website', 'url', array('required' => false))
             ->add('email', 'email', array('required' => false))
@@ -53,7 +76,8 @@ class CommentType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'add_author' => !$this->isSignedInterface
+            'add_author' => !$this->isSignedInterface,
+            'show_note'  => true
         ));
     }
 

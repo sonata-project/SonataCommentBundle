@@ -82,6 +82,8 @@ Then add these bundles in the config mapping definition (or enable `auto_mapping
         form:
             comment:
                 type: sonata_comment_comment
+        notes:
+            values: [1, 2, 3] # Optional, default would be: [1, 2, 3, 4, 5]
 
     doctrine:
         orm:

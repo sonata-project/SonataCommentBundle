@@ -12,9 +12,9 @@
 namespace Sonata\CommentBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
+use Sonata\CommentBundle\Model\Thread;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-use FOS\CommentBundle\Entity\CommentManager;
 use FOS\CommentBundle\Entity\ThreadManager as BaseThreadManager;
 
 class ThreadManager extends BaseThreadManager
