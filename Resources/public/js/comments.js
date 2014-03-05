@@ -136,7 +136,9 @@
                         serializedData,
                         // success
                         function(data, statusCode) {
-                            FOS_COMMENT.appendComment(data, that);
+                            var threadId = FOS_COMMENT.thread_container.attr('data-thread');
+                            FOS_COMMENT.getThreadComments(threadId);
+
                             that.trigger('fos_comment_new_comment', data);
                         },
                         // error
