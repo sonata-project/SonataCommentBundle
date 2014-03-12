@@ -97,7 +97,7 @@ Then add these bundles in the config mapping definition (or enable `auto_mapping
 
 Extending the Bundle
 --------------------
-At this point, the bundle is functionnal, but not quite ready yet. You need to
+At this point, the bundle is functional, but not quite ready yet. You need to
 generate the correct entities for the media::
 
     php app/console sonata:easy-extends:generate SonataCommentBundle

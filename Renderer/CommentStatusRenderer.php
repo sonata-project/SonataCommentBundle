@@ -14,7 +14,6 @@ namespace Sonata\CommentBundle\Renderer;
 use Sonata\CommentBundle\Model\Comment;
 use Sonata\CoreBundle\Component\Status\StatusClassRendererInterface;
 
-
 /**
  * Class CommentStatusRenderer
  *
@@ -39,16 +38,12 @@ class CommentStatusRenderer implements StatusClassRendererInterface
         switch ($object->getState()) {
             case Comment::STATUS_MODERATE:
                 return 'info';
-                break;
             case Comment::STATUS_VALID:
                 return 'success';
-                break;
             case Comment::STATUS_INVALID:
                 return 'important';
-                break;
             default:
                 return $default;
-                break;
         }
     }
 }

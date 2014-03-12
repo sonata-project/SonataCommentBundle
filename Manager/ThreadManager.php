@@ -50,7 +50,7 @@ class ThreadManager extends BaseThreadManager
         $threadTableName    = $this->em->getClassMetadata($this->getClass())->table['name'];
 
         $this->em->getConnection()->beginTransaction();
-        $this->em->getConnection()->query(sprintf('UPDATE %s t SET t.average_note = 0' , $threadTableName   ));
+        $this->em->getConnection()->query(sprintf('UPDATE %s t SET t.average_note = 0', $threadTableName));
 
         $this->em->getConnection()->query(sprintf(
             'UPDATE %s t, (SELECT c.thread_id, avg(c.note) as avg_note FROM %s as c WHERE c.private <> 1 GROUP BY c.thread_id) as comments_note

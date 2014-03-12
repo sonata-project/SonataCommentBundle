@@ -335,7 +335,7 @@
                                     var form = $($.trim(data)).children('form')[0];
                                     var threadId = $(form).data().fosCommentThreadId;
 
-                                    // reload the intire thread
+                                    // reload the entire thread
                                     FOS_COMMENT.getThreadComments(threadId);
                                 }
                             );
@@ -469,12 +469,12 @@
         FOS_COMMENT.easyXDM = easyXDM.noConflict('FOS_COMMENT');
 
         /**
-         * Shorcut request method.
+         * Shortcut request method.
          *
          * @param string method The request method to use.
          * @param string url The url of the page to request.
          * @param object data The data parameters.
-         * @param function success Optional callback function to use in case of succes.
+         * @param function success Optional callback function to use in case of success.
          * @param function error Optional callback function to use in case of error.
          */
         FOS_COMMENT.request = function(method, url, data, success, error) {
