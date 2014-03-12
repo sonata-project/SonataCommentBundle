@@ -55,7 +55,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Should return default value if comment state is not catched
+     * Should return default value if comment state is not caught
      */
     public function testGetInvalidClass()
     {
