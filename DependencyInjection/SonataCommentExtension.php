@@ -42,6 +42,7 @@ class SonataCommentExtension extends Extension
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('event.xml');
         $loader->load('form.xml');
+        $loader->load('note.xml');
         $loader->load('orm.xml');
         $loader->load('twig.xml');
 
@@ -69,6 +70,7 @@ class SonataCommentExtension extends Extension
         $this->configureTranslationDomain($config, $container);
         $this->configureBlocksEvents($container);
         $this->configureFormTypes($config, $container);
+        $this->configureNotesValues($config, $container);
 
         $isSignedInterface = false;
 
@@ -171,6 +173,18 @@ class SonataCommentExtension extends Extension
         $container
             ->getDefinition('sonata.comment.form.comment_status_type')
             ->replaceArgument(0, $config['class']['comment'])
+        ;
+    }
+
+    /**
+     * @param array            $config    A configuration array
+     * @param ContainerBuilder $container Symfony container builder
+     */
+    public function configureNotesValues(array $config, ContainerBuilder $container)
+    {
+        $container
+            ->getDefinition('sonata.comment.note.provider')
+            ->replaceArgument(1, $config['notes']['values'])
         ;
     }
 

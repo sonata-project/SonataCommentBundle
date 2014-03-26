@@ -10,7 +10,8 @@
 
     <services>
         <service id="sonata.comment.form.comment_type" class="Sonata\CommentBundle\Form\CommentType">
-            <argument>%fos_comment.model.comment.class%</argument>
+            <argument type="service" id="sonata.comment.note.provider" />
+
             <call method="setIsSignedInterface">
                 <argument>%sonata.comment.class.comment.signed%</argument>
             </call>

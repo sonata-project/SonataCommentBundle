@@ -51,6 +51,12 @@ class Configuration implements ConfigurationInterface
                         ->thenInvalid('The manager type %s is not supported. Please choose one of '.json_encode($supportedManagerTypes))
                     ->end()
                 ->end()
+                ->arrayNode('notes')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('values')->defaultValue(array(1, 2, 3, 4 ,5))->end()
+                    ->end()
+                ->end()
 
                 ->arrayNode('class')
                     ->children()
