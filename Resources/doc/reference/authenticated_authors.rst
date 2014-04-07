@@ -1,9 +1,13 @@
+.. index::
+    single: Authors
+    single: Authentication
+
 Use with authenticated authors
 ==============================
 
 You can use this bundle with Symfony authentication in order to retrieve author names as stored in Symfony security context.
 
-This is a ``FOSCommentBundle`` feature, we will explain to you here how to enable it using ``SonataCommentBundle``.
+This is a ``FOSCommentBundle`` feature. We will explain to you here how to enable it using ``SonataCommentBundle``.
 
 Implement SignedCommentInterface
 --------------------------------
@@ -11,6 +15,8 @@ Implement SignedCommentInterface
 Open entity ``Application\Sonata\CommentBundle\Entity\Comment`` and implement the following methods and interface:
 
 .. code-block:: php
+
+    <?php
 
     namespace Application\Sonata\CommentBundle\Entity;
 
