@@ -25,7 +25,7 @@ abstract class CommentAdmin extends Admin
     {
         $formMapper
             ->add('id')
-            ->add('createdAt')
+            ->add('createdAt', 'sonata_type_datetime_picker')
             ->add('body')
             ->add('email')
             ->add('website')
