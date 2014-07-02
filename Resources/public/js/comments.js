@@ -45,11 +45,11 @@
     "use strict";
     var FOS_COMMENT = {
         /**
-         * Shorcut post method.
+         * Shortcut post method.
          *
          * @param string url The url of the page to post.
          * @param object data The data to be posted.
-         * @param function success Optional callback function to use in case of succes.
+         * @param function success Optional callback function to use in case of success.
          * @param function error Optional callback function to use in case of error.
          */
         post: function(url, data, success, error, complete) {
@@ -68,11 +68,11 @@
         },
 
         /**
-         * Shorcut get method.
+         * Shortcut get method.
          *
          * @param string url The url of the page to get.
          * @param object data The query data.
-         * @param function success Optional callback function to use in case of succes.
+         * @param function success Optional callback function to use in case of success.
          * @param function error Optional callback function to use in case of error.
          */
         get: function(url, data, success, error) {
