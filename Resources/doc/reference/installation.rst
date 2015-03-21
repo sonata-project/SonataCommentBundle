@@ -13,8 +13,8 @@ Prerequisites
 PHP 5.3 and Symfony 2 are needed to make this bundle work; there are also some
 Sonata dependencies that need to be installed and configured beforehand:
 
-* `SonataAdminBundle <http://sonata-project.org/bundles/admin>`_
-* `SonataEasyExtendsBundle <http://sonata-project.org/bundles/easy-extends>`_
+* `SonataAdminBundle <https://sonata-project.org/bundles/admin>`_
+* `SonataEasyExtendsBundle <https://sonata-project.org/bundles/easy-extends>`_
 
 You will need to install those in their 2.0 branches (or master if they don't
 have a similar branch). Follow also their configuration step; you will find

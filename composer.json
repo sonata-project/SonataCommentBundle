@@ -3,13 +3,13 @@
     "type": "symfony-bundle",
     "description": "Symfony SonataCommentBundle",
     "keywords": ["comment", "sonata"],
-    "homepage": "http://sonata-project.org/bundles/comment",
+    "homepage": "https://sonata-project.org/bundles/comment",
     "license": "MIT",
     "authors": [
         {
             "name": "Thomas Rabaix",
             "email": "thomas.rabaix@sonata-project.org",
-            "homepage": "http://sonata-project.org"
+            "homepage": "https://sonata-project.org"
         },
         {
             "name": "Sonata Community",
