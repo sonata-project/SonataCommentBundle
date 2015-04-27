@@ -24,13 +24,12 @@ abstract class CommentAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('createdAt', 'sonata_type_datetime_picker')
             ->add('body')
             ->add('email')
             ->add('website')
             ->add('state', 'sonata_comment_status', array('translation_domain' => 'SonataCommentBundle'))
-            ->add('private', 'checkbox')
+            ->add('private', 'checkbox', array('required' => false))
         ;
     }
 
