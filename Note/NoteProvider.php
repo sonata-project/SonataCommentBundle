@@ -11,12 +11,11 @@
 
 namespace Sonata\CommentBundle\Note;
 
+use FOS\CommentBundle\Model\CommentManager;
 use Sonata\CommentBundle\Model\Thread;
 
-use FOS\CommentBundle\Model\CommentManager;
-
 /**
- * Class NoteProvider
+ * Class NoteProvider.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
@@ -33,18 +32,19 @@ class NoteProvider
     protected $values;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param CommentManager $commentManager A comment manager
      * @param array          $values         An array of notes values
      */
-    public function __construct(CommentManager $commentManager, array $values) {
+    public function __construct(CommentManager $commentManager, array $values)
+    {
         $this->commentManager = $commentManager;
         $this->values         = $values;
     }
 
     /**
-     * Returns notes values
+     * Returns notes values.
      *
      * @return array
      */
@@ -54,7 +54,7 @@ class NoteProvider
     }
 
     /**
-     * Returns Thread average note
+     * Returns Thread average note.
      *
      * @param Thread $thread
      *

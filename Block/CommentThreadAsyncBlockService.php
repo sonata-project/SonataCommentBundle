@@ -12,14 +12,14 @@
 namespace Sonata\CommentBundle\Block;
 
 use Sonata\AdminBundle\Form\FormMapper;
-use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Block\BaseBlockService;
+use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Comment thread asynchronous creation block service
+ * Comment thread asynchronous creation block service.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
@@ -45,7 +45,7 @@ class CommentThreadAsyncBlockService extends BaseBlockService
     {
         return $this->renderResponse($blockContext->getTemplate(), array(
             'block'     => $blockContext->getBlock(),
-            'settings'  => $blockContext->getSettings()
+            'settings'  => $blockContext->getSettings(),
         ), $response);
     }
 
@@ -57,8 +57,7 @@ class CommentThreadAsyncBlockService extends BaseBlockService
         $form->add('settings', 'sonata_type_immutable_array', array(
             'keys' => array(
                 array('id', 'text'),
-            )
+            ),
         ));
     }
-
 }

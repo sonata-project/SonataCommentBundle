@@ -11,59 +11,57 @@
 
 namespace Sonata\CommentBundle\Model;
 
-use Symfony\Component\Security\Core\User\UserInterface;
-
 use FOS\CommentBundle\Entity\Comment as AbstractedComment;
 
 /**
- * Comment entity
+ * Comment entity.
  */
 class Comment extends AbstractedComment
 {
     /**
-     * Available comment status
+     * Available comment status.
      */
     const STATUS_VALID    = 0;
     const STATUS_INVALID  = 1;
     const STATUS_MODERATE = 2;
 
     /**
-     * Identifier
+     * Identifier.
      *
-     * @var int $id
+     * @var int
      */
     protected $id;
 
     /**
-     * Thread of this comment
+     * Thread of this comment.
      *
-     * @var Thread $thread
+     * @var Thread
      */
     protected $thread;
 
     /**
-     * Comment author name
+     * Comment author name.
      *
      * @var string
      */
     protected $authorName;
 
     /**
-     * Comment author email address
+     * Comment author email address.
      *
      * @var string
      */
     protected $email;
 
     /**
-     * Comment author website url
+     * Comment author website url.
      *
      * @var string
      */
     protected $website;
 
     /**
-     * Comment evaluation note
+     * Comment evaluation note.
      *
      * @var float
      */
@@ -75,7 +73,7 @@ class Comment extends AbstractedComment
     protected $private;
 
     /**
-     * Sets comment author name
+     * Sets comment author name.
      *
      * @param string $authorName
      */
@@ -85,7 +83,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns comment author name
+     * Returns comment author name.
      *
      * @return string
      */
@@ -95,7 +93,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Sets comment author email address
+     * Sets comment author email address.
      *
      * @param string $email
      */
@@ -105,7 +103,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns comment author email address
+     * Returns comment author email address.
      *
      * @return string
      */
@@ -115,7 +113,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Sets comment author website url
+     * Sets comment author website url.
      *
      * @param string $website
      */
@@ -125,7 +123,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns comment author website url
+     * Returns comment author website url.
      *
      * @return string
      */
@@ -135,7 +133,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Sets comment note
+     * Sets comment note.
      *
      * @param float $note
      */
@@ -145,7 +143,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns comment note
+     * Returns comment note.
      *
      * @return float
      */
@@ -155,7 +153,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns comment state list
+     * Returns comment state list.
      *
      * @return array
      */
@@ -169,9 +167,9 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns comment state label
+     * Returns comment state label.
      *
-     * @return integer|null
+     * @return int|null
      */
     public function getStateLabel()
     {
@@ -181,9 +179,9 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Sets if comment is flagged as private
+     * Sets if comment is flagged as private.
      *
-     * @param boolean $private
+     * @param bool $private
      */
     public function setPrivate($private)
     {
@@ -191,7 +189,7 @@ class Comment extends AbstractedComment
     }
 
     /**
-     * Returns if comment is flagged as private
+     * Returns if comment is flagged as private.
      *
      * @return bool
      */

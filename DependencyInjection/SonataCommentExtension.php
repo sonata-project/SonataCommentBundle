@@ -11,18 +11,16 @@
 
 namespace Sonata\CommentBundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
+use Symfony\Component\Config\Definition\Processor;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\Config\Definition\Processor;
-
-use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
-
 /**
- * Class SonataCommentExtension
+ * Class SonataCommentExtension.
  *
  * This is the Sonata comment bundle Symfony extension class
  *
@@ -107,8 +105,6 @@ class SonataCommentExtension extends Extension
     /**
      * @param array                                                   $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     *
-     * @return void
      */
     public function configureAdminClass($config, ContainerBuilder $container)
     {
@@ -120,8 +116,6 @@ class SonataCommentExtension extends Extension
      * @param array            $config
      * @param ContainerBuilder $container
      * @param string           $modelType
-     *
-     * @return void
      */
     public function configureClass($config, ContainerBuilder $container, $modelType)
     {
@@ -132,8 +126,6 @@ class SonataCommentExtension extends Extension
     /**
      * @param array                                                   $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     *
-     * @return void
      */
     public function configureController($config, ContainerBuilder $container)
     {
@@ -144,8 +136,6 @@ class SonataCommentExtension extends Extension
     /**
      * @param array                                                   $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
-     *
-     * @return void
      */
     public function configureTranslationDomain($config, ContainerBuilder $container)
     {
@@ -207,7 +197,7 @@ class SonataCommentExtension extends Extension
         $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
             'fieldName'       => 'thread',
             'targetEntity'    => $config['class']['thread'],
-            'cascade'         => array()
+            'cascade'         => array(),
         ));
 
         // Thread
@@ -222,10 +212,10 @@ class SonataCommentExtension extends Extension
                 'mappedBy'     => null,
                 'joinColumns'  => array(
                     array(
-                        'name' => 'category_id',
+                        'name'                 => 'category_id',
                         'referencedColumnName' => 'id',
-                        'onDelete' => 'CASCADE',
-                        'onUpdate' => 'CASCADE',
+                        'onDelete'             => 'CASCADE',
+                        'onUpdate'             => 'CASCADE',
                     ),
                 ),
                 'orphanRemoval' => false,
@@ -253,12 +243,12 @@ class SonataCommentExtension extends Extension
         $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
             'fieldName'       => 'author',
             'targetEntity'    => $userClass,
-            'cascade'         => array()
+            'cascade'         => array(),
         ));
     }
 
     /**
-     * Returns if a bundle is available
+     * Returns if a bundle is available.
      *
      * @param string           $name      A bundle name
      * @param ContainerBuilder $container Symfony dependency injection container

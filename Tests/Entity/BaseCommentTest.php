@@ -11,11 +11,11 @@
 
 namespace Sonata\CommentBundle\Tests\Entity;
 
-use Sonata\CommentBundle\Entity\BaseThread;
 use Sonata\CommentBundle\Entity\BaseComment;
+use Sonata\CommentBundle\Entity\BaseThread;
 
 /**
- * This is the entity BaseComment test class
+ * This is the entity BaseComment test class.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */

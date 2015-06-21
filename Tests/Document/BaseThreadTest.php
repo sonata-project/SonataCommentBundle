@@ -14,7 +14,7 @@ namespace Sonata\CommentBundle\Tests\Document;
 use Sonata\CommentBundle\Document\BaseThread;
 
 /**
- * This is the document BaseThread test class
+ * This is the document BaseThread test class.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */

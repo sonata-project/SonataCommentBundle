@@ -15,5 +15,4 @@ use Sonata\CommentBundle\Admin\Model\ThreadAdmin as BaseThreadAdmin;
 
 class ThreadAdmin extends BaseThreadAdmin
 {
-
 }

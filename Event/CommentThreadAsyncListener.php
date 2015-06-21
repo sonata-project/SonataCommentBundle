@@ -11,13 +11,12 @@
 
 namespace Sonata\CommentBundle\Event;
 
-use Sonata\BlockBundle\Block\BlockServiceInterface;
-use Sonata\BlockBundle\Model\Block;
 use Sonata\BlockBundle\Event\BlockEvent;
+use Sonata\BlockBundle\Model\Block;
 use Sonata\CommentBundle\Block\CommentThreadAsyncBlockService;
 
 /**
- * Comment thread asynchronous listener
+ * Comment thread asynchronous listener.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
@@ -29,7 +28,7 @@ class CommentThreadAsyncListener
     protected $blockService;
 
     /**
-     * Add a comment thread asynchronous block service
+     * Add a comment thread asynchronous block service.
      *
      * @param CommentThreadAsyncBlockService $blockService
      */
@@ -39,7 +38,7 @@ class CommentThreadAsyncListener
     }
 
     /**
-     * Add blocks services to event
+     * Add blocks services to event.
      *
      * @param BlockEvent $event
      */

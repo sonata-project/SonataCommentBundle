@@ -15,26 +15,26 @@ use FOS\CommentBundle\Entity\Thread as AbstractedThread;
 use Sonata\ClassificationBundle\Model\CategoryInterface;
 
 /**
- * Thread entity
+ * Thread entity.
  */
 abstract class Thread extends AbstractedThread
 {
     /**
-     * Identifier
+     * Identifier.
      *
-     * @var string $id
+     * @var string
      */
     protected $id;
 
     /**
-     * Thread average note
+     * Thread average note.
      *
      * @var float
      */
     protected $averageNote;
 
     /**
-     * A thread category
+     * A thread category.
      *
      * @var CategoryInterface
      */
@@ -50,8 +50,6 @@ abstract class Thread extends AbstractedThread
 
     /**
      * @param bool $isCommentable
-     *
-     * @return null
      */
     public function setIsCommentable($isCommentable)
     {
@@ -59,7 +57,7 @@ abstract class Thread extends AbstractedThread
     }
 
     /**
-     * Sets thread average comments note
+     * Sets thread average comments note.
      *
      * @param $averageNote
      */
@@ -69,7 +67,7 @@ abstract class Thread extends AbstractedThread
     }
 
     /**
-     * Returns thread average comments note
+     * Returns thread average comments note.
      *
      * @return float
      */
@@ -79,7 +77,7 @@ abstract class Thread extends AbstractedThread
     }
 
     /**
-     * Sets a thread category
+     * Sets a thread category.
      *
      * @param CategoryInterface $category
      */
@@ -89,7 +87,7 @@ abstract class Thread extends AbstractedThread
     }
 
     /**
-     * Returns thread category
+     * Returns thread category.
      *
      * @return CategoryInterface
      */

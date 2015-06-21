@@ -11,13 +11,11 @@
 
 namespace Sonata\CommentBundle\Document;
 
-use Doctrine\ORM\Mapping as ORM;
 use Sonata\CommentBundle\Model\Comment as AbstractedComment;
 
 /**
- * Comment entity
+ * Comment entity.
  */
 class BaseComment extends AbstractedComment
 {
-
 }
