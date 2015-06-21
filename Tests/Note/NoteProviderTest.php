@@ -14,14 +14,14 @@ namespace Sonata\CommentBundle\Tests\Note;
 use Sonata\CommentBundle\Note\NoteProvider;
 
 /**
- * This is the NoteProvider test class
+ * This is the NoteProvider test class.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
 class NoteProviderTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Test findAverageNote() method
+     * Test findAverageNote() method.
      */
     public function testFindAverageNote()
     {
@@ -43,7 +43,7 @@ class NoteProviderTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test getValues() method
+     * Test getValues() method.
      */
     public function testGetValues()
     {

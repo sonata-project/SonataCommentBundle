@@ -17,7 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * This is a FOSCommentBundle overridden form type
+ * This is a FOSCommentBundle overridden form type.
  */
 class CommentType extends AbstractType
 {
@@ -27,7 +27,7 @@ class CommentType extends AbstractType
     protected $noteProvider;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param NoteProvider $noteProvider
      */
@@ -39,7 +39,7 @@ class CommentType extends AbstractType
     /**
      * Is comment model implementing signed interface?
      *
-     * @var boolean
+     * @var bool
      */
     protected $isSignedInterface = false;
 
@@ -60,7 +60,7 @@ class CommentType extends AbstractType
         if ($options['show_note']) {
             $builder->add('note', 'choice', array(
                 'required' => false,
-                'choices'  => $this->noteProvider->getValues()
+                'choices'  => $this->noteProvider->getValues(),
             ));
         }
 
@@ -77,14 +77,14 @@ class CommentType extends AbstractType
     {
         $resolver->setDefaults(array(
             'add_author' => !$this->isSignedInterface,
-            'show_note'  => true
+            'show_note'  => true,
         ));
     }
 
     /**
-     * Sets if comment model is implementing signed interface
+     * Sets if comment model is implementing signed interface.
      *
-     * @param boolean $isSignedInterface
+     * @param bool $isSignedInterface
      */
     public function setIsSignedInterface($isSignedInterface)
     {
@@ -96,7 +96,7 @@ class CommentType extends AbstractType
      */
     public function getName()
     {
-        return "sonata_comment_comment";
+        return 'sonata_comment_comment';
     }
 
     /**
@@ -104,6 +104,6 @@ class CommentType extends AbstractType
      */
     public function getParent()
     {
-        return "fos_comment_comment";
+        return 'fos_comment_comment';
     }
 }

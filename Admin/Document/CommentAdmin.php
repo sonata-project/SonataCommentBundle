@@ -15,5 +15,4 @@ use Sonata\CommentBundle\Admin\Model\CommentAdmin as BaseCommentAdmin;
 
 class CommentAdmin extends BaseCommentAdmin
 {
-
 }

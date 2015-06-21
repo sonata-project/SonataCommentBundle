@@ -12,10 +12,8 @@
 namespace Sonata\CommentBundle\Manager;
 
 use Doctrine\ORM\EntityManager;
-use Sonata\CommentBundle\Model\Thread;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-
 use FOS\CommentBundle\Entity\ThreadManager as BaseThreadManager;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class ThreadManager extends BaseThreadManager
 {
@@ -25,7 +23,7 @@ class ThreadManager extends BaseThreadManager
     protected $commentManager;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param CommentManager           $commentManager
      * @param EventDispatcherInterface $dispatcher
@@ -40,9 +38,7 @@ class ThreadManager extends BaseThreadManager
     }
 
     /**
-     * Updates the threads average note from comments notes
-     *
-     * @return void
+     * Updates the threads average note from comments notes.
      */
     public function updateAverageNote()
     {
@@ -56,8 +52,7 @@ class ThreadManager extends BaseThreadManager
             'UPDATE %s t, (SELECT c.thread_id, avg(c.note) as avg_note FROM %s as c WHERE c.private <> 1 GROUP BY c.thread_id) as comments_note
             SET t.average_note = comments_note.avg_note
             WHERE t.id = comments_note.thread_id
-            AND t.is_commentable <> 0'
-            , $threadTableName, $commentTableName));
+            AND t.is_commentable <> 0', $threadTableName, $commentTableName));
 
         $this->em->getConnection()->commit();
     }

@@ -11,14 +11,13 @@
 
 namespace Sonata\CommentBundle\Manager;
 
-use Sonata\CommentBundle\Model\Thread;
-
 use FOS\CommentBundle\Entity\CommentManager as BaseCommentManager;
+use Sonata\CommentBundle\Model\Thread;
 
 class CommentManager extends BaseCommentManager
 {
     /**
-     * Returns Thread average note
+     * Returns Thread average note.
      *
      * @param Thread $thread
      *
@@ -32,7 +31,7 @@ class CommentManager extends BaseCommentManager
             ->andWhere('c.thread = :thread')
             ->setParameters(array(
                 'private' => 1,
-                'thread'  => $thread
+                'thread'  => $thread,
             ))
             ->getQuery()
             ->getSingleScalarResult();

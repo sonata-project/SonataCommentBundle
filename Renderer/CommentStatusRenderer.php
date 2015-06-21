@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sonata package.
  *
@@ -8,14 +9,13 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Sonata\CommentBundle\Renderer;
 
 use Sonata\CommentBundle\Model\Comment;
 use Sonata\CoreBundle\Component\Status\StatusClassRendererInterface;
 
 /**
- * Class CommentStatusRenderer
+ * Class CommentStatusRenderer.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */

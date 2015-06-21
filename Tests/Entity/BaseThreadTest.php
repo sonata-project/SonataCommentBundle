@@ -14,14 +14,14 @@ namespace Sonata\CommentBundle\Tests\Entity;
 use Sonata\CommentBundle\Entity\BaseThread;
 
 /**
- * This is the entity BaseThread test class
+ * This is the entity BaseThread test class.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
 class BaseThreadTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Tests setters & getters
+     * Tests setters & getters.
      */
     public function testGetters()
     {
@@ -47,7 +47,7 @@ class BaseThreadTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Tests category setter & getter if using SonataClassificationBundle
+     * Tests category setter & getter if using SonataClassificationBundle.
      */
     public function testCategoryGetters()
     {

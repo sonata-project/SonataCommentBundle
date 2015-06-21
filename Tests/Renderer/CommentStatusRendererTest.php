@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sonata package.
  *
@@ -8,21 +9,20 @@
  * file that was distributed with this source code.
  */
 
-
 namespace Sonata\CommentBundle\Tests\Renderer;
 
 use Sonata\CommentBundle\Model\Comment;
 use Sonata\CommentBundle\Renderer\CommentStatusRenderer;
 
 /**
- * This is the OrderStatusRenderer test class
+ * This is the OrderStatusRenderer test class.
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
 class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * Should handle only Comment model class
+     * Should handle only Comment model class.
      */
     public function testHandles()
     {
@@ -42,7 +42,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Should returns valid status classes depending on comment state
+     * Should returns valid status classes depending on comment state.
      */
     public function testGetValidClass()
     {
@@ -55,7 +55,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Should return default value if comment state is not caught
+     * Should return default value if comment state is not caught.
      */
     public function testGetInvalidClass()
     {

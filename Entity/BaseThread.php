@@ -11,13 +11,11 @@
 
 namespace Sonata\CommentBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Sonata\CommentBundle\Model\Thread as AbstractedThread;
 
 /**
- * Thread entity
+ * Thread entity.
  */
 class BaseThread extends AbstractedThread
 {
-
 }

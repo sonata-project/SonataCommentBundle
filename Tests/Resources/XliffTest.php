@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Sonata project.
  *
@@ -13,7 +14,7 @@ namespace Sonata\CommentBundle\Tests\Resources;
 use Sonata\CoreBundle\Test\XliffValidatorTestCase;
 
 /**
- * This is a XliffTest class to ensure that translations are correctly formatted
+ * This is a XliffTest class to ensure that translations are correctly formatted.
  */
 class XliffTest extends XliffValidatorTestCase
 {

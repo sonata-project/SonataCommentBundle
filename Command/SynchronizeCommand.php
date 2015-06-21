@@ -14,7 +14,6 @@ namespace Sonata\CommentBundle\Command;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Output\Output;
 
 class SynchronizeCommand extends ContainerAwareCommand
 {
@@ -40,7 +39,7 @@ class SynchronizeCommand extends ContainerAwareCommand
     }
 
     /**
-     * Returns Thread manager
+     * Returns Thread manager.
      *
      * @return \Sonata\CommentBundle\Manager\ThreadManager
      */

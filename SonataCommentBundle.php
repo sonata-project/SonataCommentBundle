@@ -14,7 +14,7 @@ namespace Sonata\CommentBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class SonataCommentBundle
+ * Class SonataCommentBundle.
  *
  * This is the Sonata comment bundle class for Symfony extending from FOSCommentBundle
  */
