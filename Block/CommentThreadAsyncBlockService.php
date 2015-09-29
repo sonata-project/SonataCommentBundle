@@ -16,7 +16,7 @@ use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Comment thread asynchronous creation block service.
@@ -28,10 +28,8 @@ class CommentThreadAsyncBlockService extends BaseBlockService
     /**
      * {@inheritdoc}
      */
-    public function setDefaultSettings(OptionsResolverInterface $resolver)
+    public function configureSettings(OptionsResolver $resolver)
     {
-        parent::setDefaultSettings($resolver);
-
         $resolver->setDefaults(array(
             'id'       => null,
             'template' => 'SonataCommentBundle:Block:thread_async.html.twig',
