@@ -8,7 +8,7 @@
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
-namespace Sonata\CommentBundle\Form;
+namespace Sonata\CommentBundle\Form\Type;
 
 use Sonata\CommentBundle\Note\NoteProvider;
 use Symfony\Component\Form\AbstractType;
@@ -93,9 +93,17 @@ class CommentType extends AbstractType
     /**
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'sonata_comment_comment';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return $this->getBlockPrefix();
     }
 
     /**
