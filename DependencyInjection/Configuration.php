@@ -53,7 +53,10 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('notes')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('values')->defaultValue(array(1, 2, 3, 4, 5))->end()
+                        ->arrayNode('values')
+                            ->prototype('scalar')->end()
+                            ->defaultValue(array(1, 2, 3, 4, 5))
+                        ->end()
                     ->end()
                 ->end()
 
