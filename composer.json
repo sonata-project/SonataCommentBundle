@@ -1,7 +1,7 @@
 {
     "name": "sonata-project/comment-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony SonataCommentBundle",
+    "description": "Integrate the FOSCommentBundle in the Sonata Project",
     "keywords": ["comment", "sonata"],
     "homepage": "https://sonata-project.org/bundles/comment",
     "license": "MIT",
