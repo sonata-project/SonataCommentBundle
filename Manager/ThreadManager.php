@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Sonata project.
+ * This file is part of the Sonata Project package.
  *
  * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
  *
@@ -43,7 +43,7 @@ class ThreadManager extends BaseThreadManager
     public function updateAverageNote()
     {
         $commentTableName = $this->em->getClassMetadata($this->commentManager->getClass())->table['name'];
-        $threadTableName    = $this->em->getClassMetadata($this->getClass())->table['name'];
+        $threadTableName = $this->em->getClassMetadata($this->getClass())->table['name'];
 
         $this->em->getConnection()->beginTransaction();
         $this->em->getConnection()->query(sprintf('UPDATE %s t SET t.average_note = 0', $threadTableName));

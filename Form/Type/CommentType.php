@@ -1,12 +1,12 @@
 <?php
 
 /*
- * This file is part of the FOSCommentBundle package.
+ * This file is part of the Sonata Project package.
  *
- * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
+ * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
  *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Sonata\CommentBundle\Form\Type;
@@ -27,6 +27,13 @@ class CommentType extends AbstractType
     protected $noteProvider;
 
     /**
+     * Is comment model implementing signed interface?
+     *
+     * @var bool
+     */
+    protected $isSignedInterface = false;
+
+    /**
      * Constructor.
      *
      * @param NoteProvider $noteProvider
@@ -35,13 +42,6 @@ class CommentType extends AbstractType
     {
         $this->noteProvider = $noteProvider;
     }
-
-    /**
-     * Is comment model implementing signed interface?
-     *
-     * @var bool
-     */
-    protected $isSignedInterface = false;
 
     /**
      * Configures a Comment form.
@@ -60,7 +60,7 @@ class CommentType extends AbstractType
         if ($options['show_note']) {
             $builder->add('note', 'choice', array(
                 'required' => false,
-                'choices'  => $this->noteProvider->getValues(),
+                'choices' => $this->noteProvider->getValues(),
             ));
         }
 
@@ -77,7 +77,7 @@ class CommentType extends AbstractType
     {
         $resolver->setDefaults(array(
             'add_author' => !$this->isSignedInterface,
-            'show_note'  => true,
+            'show_note' => true,
         ));
     }
 
