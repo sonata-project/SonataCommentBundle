@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Sonata project.
+ * This file is part of the Sonata Project package.
  *
  * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
  *
@@ -21,8 +21,8 @@ class Comment extends AbstractedComment
     /**
      * Available comment status.
      */
-    const STATUS_VALID    = 0;
-    const STATUS_INVALID  = 1;
+    const STATUS_VALID = 0;
+    const STATUS_INVALID = 1;
     const STATUS_MODERATE = 2;
 
     /**
@@ -160,8 +160,8 @@ class Comment extends AbstractedComment
     public static function getStateList()
     {
         return array(
-            self::STATUS_VALID    => 'valid',
-            self::STATUS_INVALID  => 'invalid',
+            self::STATUS_VALID => 'valid',
+            self::STATUS_INVALID => 'invalid',
             self::STATUS_MODERATE => 'moderate',
         );
     }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Sonata project.
+ * This file is part of the Sonata Project package.
  *
  * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
  *
@@ -195,27 +195,27 @@ class SonataCommentExtension extends Extension
         // Comment
 
         $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
-            'fieldName'       => 'thread',
-            'targetEntity'    => $config['class']['thread'],
-            'cascade'         => array(),
+            'fieldName' => 'thread',
+            'targetEntity' => $config['class']['thread'],
+            'cascade' => array(),
         ));
 
         // Thread
 
         if ($this->hasBundle('SonataClassificationBundle', $container)) {
             $collector->addAssociation($config['class']['thread'], 'mapManyToOne', array(
-                'fieldName'    => 'category',
+                'fieldName' => 'category',
                 'targetEntity' => $config['class']['category'],
-                'cascade'      => array(
+                'cascade' => array(
                     'persist',
                 ),
-                'mappedBy'     => null,
-                'joinColumns'  => array(
+                'mappedBy' => null,
+                'joinColumns' => array(
                     array(
-                        'name'                 => 'category_id',
+                        'name' => 'category_id',
                         'referencedColumnName' => 'id',
-                        'onDelete'             => 'CASCADE',
-                        'onUpdate'             => 'CASCADE',
+                        'onDelete' => 'CASCADE',
+                        'onUpdate' => 'CASCADE',
                     ),
                 ),
                 'orphanRemoval' => false,
@@ -241,9 +241,9 @@ class SonataCommentExtension extends Extension
         $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
 
         $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
-            'fieldName'       => 'author',
-            'targetEntity'    => $userClass,
-            'cascade'         => array(),
+            'fieldName' => 'author',
+            'targetEntity' => $userClass,
+            'cascade' => array(),
         ));
     }
 

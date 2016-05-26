@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Sonata project.
+ * This file is part of the Sonata Project package.
  *
  * (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
  *
@@ -31,7 +31,7 @@ class CommentManager extends BaseCommentManager
             ->andWhere('c.thread = :thread')
             ->setParameters(array(
                 'private' => 1,
-                'thread'  => $thread,
+                'thread' => $thread,
             ))
             ->getQuery()
             ->getSingleScalarResult();
