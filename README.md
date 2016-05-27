@@ -1,25 +1,30 @@
-SonataCommentBundle
-===================
+# Sonata Comment Bundle
 
-[![Build Status](https://api.travis-ci.org/sonata-project/SonataCommentBundle.png)](https://travis-ci.org/sonata-project/SonataCommentBundle)
+Symfony SonataCommentBundle
 
-Integrate the FOS/CommentBundle in the Sonata Project
------------------------------------------------------
+[![Latest Stable Version](https://poser.pugx.org/sonata-project/comment-bundle/v/stable)](https://packagist.org/packages/sonata-project/comment-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/sonata-project/comment-bundle/v/unstable)](https://packagist.org/packages/sonata-project/comment-bundle)
+[![License](https://poser.pugx.org/sonata-project/comment-bundle/license)](https://packagist.org/packages/sonata-project/comment-bundle)
 
-- AdminBundle: add threads and comments management
-- EasyExtends: allows to generate Application level model
+[![Total Downloads](https://poser.pugx.org/sonata-project/comment-bundle/downloads)](https://packagist.org/packages/sonata-project/comment-bundle)
+[![Monthly Downloads](https://poser.pugx.org/sonata-project/comment-bundle/d/monthly)](https://packagist.org/packages/sonata-project/comment-bundle)
+[![Daily Downloads](https://poser.pugx.org/sonata-project/comment-bundle/d/daily)](https://packagist.org/packages/sonata-project/comment-bundle)
 
-Installation
-------------
+master status: [![Build Status](https://travis-ci.org/sonata-project/SonataCommentBundle.svg?branch=master)](https://travis-ci.org/sonata-project/SonataCommentBundle)
 
-Check out the documentation on [https://sonata-project.org/bundles/comment/master/doc/index.html](https://sonata-project.org/bundles/comment/master/doc/index.html)
+master status: [![Build Status](https://travis-ci.org/sonata-project/SonataCommentBundle.svg?branch=master)](https://travis-ci.org/sonata-project/SonataCommentBundle)
 
-**Google Groups**: For questions and proposals you can post on this google groups
+## Documentation
 
-* [Sonata Users](https://groups.google.com/group/sonata-users): Only for user questions
-* [Sonata Devs](https://groups.google.com/group/sonata-devs): Only for devs
+Check out the documentation on the [official website](https://sonata-project.org/bundles/comment).
 
-License
--------
+## Support
 
-This bundle is available under the [MIT license](Resources/meta/LICENSE).
+For general support and questions, please use [StackOverflow](http://stackoverflow.com/questions/tagged/sonata).
+
+If you think you find a bug or you have a feature idea to propose, feel free to open a issue
+**after looking** at the [contributing guide](CONTRIBUTING.md).
+
+## License
+
+This package is available under the [MIT license](LICENSE).
