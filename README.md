@@ -10,9 +10,10 @@ Integrate the FOSCommentBundle in the Sonata Project
 [![Monthly Downloads](https://poser.pugx.org/sonata-project/comment-bundle/d/monthly)](https://packagist.org/packages/sonata-project/comment-bundle)
 [![Daily Downloads](https://poser.pugx.org/sonata-project/comment-bundle/d/daily)](https://packagist.org/packages/sonata-project/comment-bundle)
 
-3.x status: [![Build Status](https://travis-ci.org/sonata-project/SonataCommentBundle.svg?branch=3.x)](https://travis-ci.org/sonata-project/SonataCommentBundle)
-
-master status: [![Build Status](https://travis-ci.org/sonata-project/SonataCommentBundle.svg?branch=master)](https://travis-ci.org/sonata-project/SonataCommentBundle)
+Branch | Travis | Coveralls |
+------ | ------ | --------- |
+3.x   | [![Build Status][travis_stable_badge]][travis_stable_link]     | [![Coverage Status][coveralls_stable_badge]][coveralls_stable_link]     |
+master | [![Build Status][travis_unstable_badge]][travis_unstable_link] | [![Coverage Status][coveralls_unstable_badge]][coveralls_unstable_link] |
 
 ## Documentation
 
@@ -28,3 +29,13 @@ If you think you find a bug or you have a feature idea to propose, feel free to 
 ## License
 
 This package is available under the [MIT license](LICENSE).
+
+[travis_stable_badge]: https://travis-ci.org/sonata-project/SonataCommentBundle.svg?branch=3.x
+[travis_stable_link]: https://travis-ci.org/sonata-project/SonataCommentBundle
+[travis_unstable_badge]: https://travis-ci.org/sonata-project/SonataCommentBundle.svg?branch=master
+[travis_unstable_link]: https://travis-ci.org/sonata-project/SonataCommentBundle
+
+[coveralls_stable_badge]: https://coveralls.io/repos/github/sonata-project/SonataCommentBundle/badge.svg?branch=3.x
+[coveralls_stable_link]: https://coveralls.io/github/sonata-project/SonataCommentBundle?branch=3.x
+[coveralls_unstable_badge]: https://coveralls.io/repos/github/sonata-project/SonataCommentBundle/badge.svg?branch=master
+[coveralls_unstable_link]: https://coveralls.io/github/sonata-project/SonataCommentBundle?branch=master
