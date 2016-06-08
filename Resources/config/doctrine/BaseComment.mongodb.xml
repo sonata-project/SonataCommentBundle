@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
-                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
-                  http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <mapped-superclass name="Sonata\CommentBundle\Document\BaseComment">
-
-        <field name="authorName" column="author_name" type="string"  nullable="false" />
-        <field name="email"      column="email"       type="string"  nullable="true" />
-        <field name="website"    column="website"     type="string"  nullable="true" />
-        <field name="note"       column="note"        type="float"   nullable="true" />
-        <field name="private"    column="private"     type="boolean" nullable="true" />
-
+        <field name="authorName" column="author_name" type="string" nullable="false"/>
+        <field name="email" column="email" type="string" nullable="true"/>
+        <field name="website" column="website" type="string" nullable="true"/>
+        <field name="note" column="note" type="float" nullable="true"/>
+        <field name="private" column="private" type="boolean" nullable="true"/>
     </mapped-superclass>
-
 </doctrine-mapping>
