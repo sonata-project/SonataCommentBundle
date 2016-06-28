@@ -37,8 +37,14 @@
         "sonata-project/doctrine-orm-admin-bundle": "For doctrine ORM admin integration"
     },
     "autoload": {
-        "psr-4": { "Sonata\\CommentBundle\\": "" }
+        "psr-4": { "Sonata\\CommentBundle\\": "" },
+        "exclude-from-classmap": [
+            "Tests/"
+        ]
     },
+    "autoload-dev": {
+        "psr-4": { "Sonata\\CommentBundle\\Tests\\": "Tests/" }
+     },
     "extra": {
         "branch-alias": {
             "dev-master": "3.x-dev"
