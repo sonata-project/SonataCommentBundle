@@ -1,14 +1,13 @@
 Comment Bundle
 ==============
 
-Reference Guide
----------------
-
 .. toctree::
+   :caption: Reference Guide
+   :name: reference-guide
    :maxdepth: 1
    :numbered:
 
-    Introduction <reference/introduction>
-    Installation <reference/installation>
-    Usage <reference/usage>
-    Authenticated authors <reference/authenticated_authors>
+   reference/introduction
+   reference/installation
+   reference/usage
+   reference/authenticated_authors
