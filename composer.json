@@ -25,7 +25,7 @@
         "friendsofsymfony/comment-bundle": "^2.0",
         "sonata-project/core-bundle": "^3.0",
         "sonata-project/doctrine-extensions": "^1.0",
-        "sonata-project/easy-extends-bundle": "^2.1"
+        "sonata-project/easy-extends-bundle": "^2.2"
     },
     "require-dev": {
         "sonata-project/classification-bundle": "^3.0",
