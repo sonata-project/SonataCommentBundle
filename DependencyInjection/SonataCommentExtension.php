@@ -192,7 +192,7 @@ class SonataCommentExtension extends Extension
 
         $collector = DoctrineCollector::getInstance();
 
-        // Comment
+        // Comment.
 
         $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
             'fieldName' => 'thread',
