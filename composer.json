@@ -42,9 +42,6 @@
             "Tests/"
         ]
     },
-    "autoload-dev": {
-        "psr-4": { "Sonata\\CommentBundle\\Tests\\": "Tests/" }
-     },
     "extra": {
         "branch-alias": {
             "dev-master": "3.x-dev"
