@@ -18,20 +18,20 @@
     ],
     "require": {
         "php": "^5.3 || ^7.0",
-        "symfony/http-foundation": "^2.3 || ^3.0",
-        "symfony/form": "^2.3 || ^3.0",
-        "symfony/security": "^2.3 || ^3.0",
-        "symfony/console": "^2.3 || ^3.0",
         "friendsofsymfony/comment-bundle": "^2.0",
         "sonata-project/core-bundle": "^3.0",
         "sonata-project/doctrine-extensions": "^1.0",
-        "sonata-project/easy-extends-bundle": "^2.1"
+        "sonata-project/easy-extends-bundle": "^2.1",
+        "symfony/console": "^2.3 || ^3.0",
+        "symfony/form": "^2.3 || ^3.0",
+        "symfony/http-foundation": "^2.3 || ^3.0",
+        "symfony/security": "^2.3 || ^3.0"
     },
     "require-dev": {
+        "sllh/php-cs-fixer-styleci-bridge": "^2.0",
         "sonata-project/classification-bundle": "^3.0",
-        "sonata-project/media-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^2.7 || ^3.0",
-        "sllh/php-cs-fixer-styleci-bridge": "^2.0"
+        "sonata-project/media-bundle": "^3.6",
+        "symfony/phpunit-bridge": "^2.7 || ^3.0"
     },
     "suggest": {
         "sonata-project/doctrine-orm-admin-bundle": "For doctrine ORM admin integration"
@@ -42,9 +42,9 @@
             "Tests/"
         ]
     },
-    "autoload-dev": {
-        "psr-4": { "Sonata\\CommentBundle\\Tests\\": "Tests/" }
-     },
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "3.x-dev"
