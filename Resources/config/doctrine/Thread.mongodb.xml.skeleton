@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Application\Sonata\CommentBundle\Document\Thread" table="comment__thread">
+    <entity name="{{ namespace }}\Document\Thread" table="comment__thread">
 
         <id name="id" column="id" type="string" />
 
