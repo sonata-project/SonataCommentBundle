@@ -51,7 +51,7 @@ class SonataCommentBundle extends Bundle
      */
     public function registerFormMapping()
     {
-        FormHelper::registerFormTypeMapping(array(
+        FormHelper::registerFormTypeMapping([
             'fos_comment_comment' => 'FOS\CommentBundle\Form\CommentType',
             'fos_comment_commentable_thread' => 'FOS\CommentBundle\Form\CommentableThreadType',
             'fos_comment_delete_comment' => 'FOS\CommentBundle\Form\DeleteCommentType',
@@ -59,6 +59,6 @@ class SonataCommentBundle extends Bundle
             'fos_comment_vote' => 'FOS\CommentBundle\Form\VoteType',
             'sonata_comment_comment' => 'Sonata\CommentBundle\Form\Type\CommentType',
             'sonata_comment_status' => 'Sonata\CommentBundle\Form\Type\CommentStatusType',
-        ));
+        ]);
     }
 }

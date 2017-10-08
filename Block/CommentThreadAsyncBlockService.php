@@ -30,10 +30,10 @@ class CommentThreadAsyncBlockService extends BaseBlockService
      */
     public function configureSettings(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'id' => null,
             'template' => 'SonataCommentBundle:Block:thread_async.html.twig',
-        ));
+        ]);
     }
 
     /**
@@ -41,10 +41,10 @@ class CommentThreadAsyncBlockService extends BaseBlockService
      */
     public function execute(BlockContextInterface $blockContext, Response $response = null)
     {
-        return $this->renderResponse($blockContext->getTemplate(), array(
+        return $this->renderResponse($blockContext->getTemplate(), [
             'block' => $blockContext->getBlock(),
             'settings' => $blockContext->getSettings(),
-        ), $response);
+        ], $response);
     }
 
     /**
@@ -52,10 +52,10 @@ class CommentThreadAsyncBlockService extends BaseBlockService
      */
     public function buildEditForm(FormMapper $form, BlockInterface $block)
     {
-        $form->add('settings', 'sonata_type_immutable_array', array(
-            'keys' => array(
-                array('id', 'text'),
-            ),
-        ));
+        $form->add('settings', 'sonata_type_immutable_array', [
+            'keys' => [
+                ['id', 'text'],
+            ],
+        ]);
     }
 }

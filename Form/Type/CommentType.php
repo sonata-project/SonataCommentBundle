@@ -52,21 +52,21 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if ($options['add_author']) {
-            $builder->add('authorName', 'text', array('required' => true));
+            $builder->add('authorName', 'text', ['required' => true]);
 
             $this->vars['add_author'] = $options['add_author'];
         }
 
         if ($options['show_note']) {
-            $builder->add('note', 'choice', array(
+            $builder->add('note', 'choice', [
                 'required' => false,
                 'choices' => $this->noteProvider->getValues(),
-            ));
+            ]);
         }
 
         $builder
-            ->add('website', 'url', array('required' => false))
-            ->add('email', 'email', array('required' => false))
+            ->add('website', 'url', ['required' => false])
+            ->add('email', 'email', ['required' => false])
         ;
     }
 
@@ -75,10 +75,10 @@ class CommentType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'add_author' => !$this->isSignedInterface,
             'show_note' => true,
-        ));
+        ]);
     }
 
     /**
