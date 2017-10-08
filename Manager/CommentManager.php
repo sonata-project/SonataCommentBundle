@@ -29,10 +29,10 @@ class CommentManager extends BaseCommentManager
             ->select('avg(c.note)')
             ->where('c.private <> :private')
             ->andWhere('c.thread = :thread')
-            ->setParameters(array(
+            ->setParameters([
                 'private' => 1,
                 'thread' => $thread,
-            ))
+            ])
             ->getQuery()
             ->getSingleScalarResult();
     }

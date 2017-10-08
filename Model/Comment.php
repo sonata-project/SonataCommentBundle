@@ -159,11 +159,11 @@ class Comment extends AbstractedComment
      */
     public static function getStateList()
     {
-        return array(
+        return [
             self::STATUS_VALID => 'valid',
             self::STATUS_INVALID => 'invalid',
             self::STATUS_MODERATE => 'moderate',
-        );
+        ];
     }
 
     /**
