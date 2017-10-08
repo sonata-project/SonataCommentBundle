@@ -34,7 +34,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
         $comment = $this->getMock('Sonata\CommentBundle\Model\Comment');
         $this->assertTrue($commentStatusRenderer->handlesObject($comment));
 
-        foreach (array('moderate', 'invalid', 'valid') as $correctStatusType) {
+        foreach (['moderate', 'invalid', 'valid'] as $correctStatusType) {
             $this->assertTrue($commentStatusRenderer->handlesObject($comment, $correctStatusType));
         }
 
@@ -51,7 +51,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
         $comment = $this->getMock('Sonata\CommentBundle\Model\Comment');
         $comment->expects($this->once())->method('getState')->will($this->returnValue(array_rand(Comment::getStateList())));
 
-        $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), array('success', 'info', 'important'));
+        $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), ['success', 'info', 'important']);
     }
 
     /**

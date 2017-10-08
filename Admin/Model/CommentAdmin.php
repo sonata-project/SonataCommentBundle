@@ -28,8 +28,8 @@ abstract class CommentAdmin extends Admin
             ->add('body')
             ->add('email')
             ->add('website')
-            ->add('state', 'sonata_comment_status', array('translation_domain' => 'SonataCommentBundle'))
-            ->add('private', 'checkbox', array('required' => false))
+            ->add('state', 'sonata_comment_status', ['translation_domain' => 'SonataCommentBundle'])
+            ->add('private', 'checkbox', ['required' => false])
         ;
     }
 
@@ -58,8 +58,8 @@ abstract class CommentAdmin extends Admin
             ->add('body', 'text')
             ->add('createdAt', 'datetime')
             ->add('note', 'float')
-            ->add('state', 'string', array('template' => 'SonataCommentBundle:CommentAdmin:list_status.html.twig'))
-            ->add('private', 'boolean', array('editable' => true))
+            ->add('state', 'string', ['template' => 'SonataCommentBundle:CommentAdmin:list_status.html.twig'])
+            ->add('private', 'boolean', ['editable' => true])
         ;
     }
 }

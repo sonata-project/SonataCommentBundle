@@ -68,7 +68,7 @@ abstract class ThreadAdmin extends Admin
         $listMapper
             ->add('permalink', 'text')
             ->add('numComments')
-            ->add('isCommentable', 'boolean', array('editable' => true))
+            ->add('isCommentable', 'boolean', ['editable' => true])
         ;
     }
 
@@ -77,7 +77,7 @@ abstract class ThreadAdmin extends Admin
      */
     protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
-        if (!$childAdmin && !in_array($action, array('edit'))) {
+        if (!$childAdmin && !in_array($action, ['edit'])) {
             return;
         }
 
@@ -86,13 +86,13 @@ abstract class ThreadAdmin extends Admin
         $id = $admin->getRequest()->get('id');
 
         $menu->addChild(
-            $this->trans('sonata_comment_admin_edit', array(), 'SonataCommentBundle'),
-            array('uri' => $admin->generateUrl('edit', array('id' => $id)))
+            $this->trans('sonata_comment_admin_edit', [], 'SonataCommentBundle'),
+            ['uri' => $admin->generateUrl('edit', ['id' => $id])]
         );
 
         $menu->addChild(
-            $this->trans('sonata_comment_admin_view_comments', array(), 'SonataCommentBundle'),
-            array('uri' => $admin->generateUrl('sonata.comment.admin.comment.list', array('id' => $id)))
+            $this->trans('sonata_comment_admin_view_comments', [], 'SonataCommentBundle'),
+            ['uri' => $admin->generateUrl('sonata.comment.admin.comment.list', ['id' => $id])]
         );
     }
 }

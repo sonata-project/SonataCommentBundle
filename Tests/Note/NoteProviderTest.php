@@ -33,7 +33,7 @@ class NoteProviderTest extends \PHPUnit_Framework_TestCase
             ->getMock();
         $commentManager->expects($this->once())->method('findAverageNote')->will($this->returnValue(3.5));
 
-        $provider = new NoteProvider($commentManager, array(0, 1, 2, 3));
+        $provider = new NoteProvider($commentManager, [0, 1, 2, 3]);
 
         // When
         $averageNote = $provider->findAverageNote($thread);
@@ -54,12 +54,12 @@ class NoteProviderTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $provider = new NoteProvider($commentManager, array(1, 2, 3));
+        $provider = new NoteProvider($commentManager, [1, 2, 3]);
 
         // When
         $notes = $provider->getValues();
 
         // Then
-        $this->assertEquals(array(1, 2, 3), $notes, 'Should return notes given in constructor');
+        $this->assertEquals([1, 2, 3], $notes, 'Should return notes given in constructor');
     }
 }
