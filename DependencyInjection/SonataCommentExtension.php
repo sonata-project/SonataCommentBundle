@@ -150,7 +150,7 @@ class SonataCommentExtension extends Extension
     {
         $container
             ->getDefinition('sonata.comment.event.sonata.comment')
-            ->addMethodCall('setBlockService', array(new Reference('sonata.comment.block.thread.async')))
+            ->addMethodCall('setBlockService', [new Reference('sonata.comment.block.thread.async')])
         ;
     }
 
@@ -194,32 +194,32 @@ class SonataCommentExtension extends Extension
 
         // Comment.
 
-        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
+        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', [
             'fieldName' => 'thread',
             'targetEntity' => $config['class']['thread'],
-            'cascade' => array(),
-        ));
+            'cascade' => [],
+        ]);
 
         // Thread
 
         if ($this->hasBundle('SonataClassificationBundle', $container)) {
-            $collector->addAssociation($config['class']['thread'], 'mapManyToOne', array(
+            $collector->addAssociation($config['class']['thread'], 'mapManyToOne', [
                 'fieldName' => 'category',
                 'targetEntity' => $config['class']['category'],
-                'cascade' => array(
+                'cascade' => [
                     'persist',
-                ),
+                ],
                 'mappedBy' => null,
-                'joinColumns' => array(
-                    array(
+                'joinColumns' => [
+                    [
                         'name' => 'category_id',
                         'referencedColumnName' => 'id',
                         'onDelete' => 'CASCADE',
                         'onUpdate' => 'CASCADE',
-                    ),
-                ),
+                    ],
+                ],
                 'orphanRemoval' => false,
-            ));
+            ]);
         }
     }
 
@@ -240,11 +240,11 @@ class SonataCommentExtension extends Extension
 
         $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
 
-        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', array(
+        $collector->addAssociation($config['class']['comment'], 'mapManyToOne', [
             'fieldName' => 'author',
             'targetEntity' => $userClass,
-            'cascade' => array(),
-        ));
+            'cascade' => [],
+        ]);
     }
 
     /**

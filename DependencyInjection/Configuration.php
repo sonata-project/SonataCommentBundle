@@ -31,8 +31,8 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('sonata_comment');
 
-        $supportedManagerTypes = array('orm', 'mongodb');
-        $supportedProviders = array('fos_comment');
+        $supportedManagerTypes = ['orm', 'mongodb'];
+        $supportedProviders = ['fos_comment'];
 
         $rootNode
             ->children()
@@ -55,7 +55,7 @@ class Configuration implements ConfigurationInterface
                     ->children()
                         ->arrayNode('values')
                             ->prototype('scalar')->end()
-                            ->defaultValue(array(1, 2, 3, 4, 5))
+                            ->defaultValue([1, 2, 3, 4, 5])
                         ->end()
                     ->end()
                 ->end()
