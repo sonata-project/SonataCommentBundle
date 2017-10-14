@@ -15,6 +15,9 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\CommentBundle\Form\Type\CommentStatusType;
+use Sonata\CoreBundle\Form\Type\DateTimePickerType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 abstract class CommentAdmin extends Admin
 {
@@ -24,12 +27,16 @@ abstract class CommentAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('createdAt', 'sonata_type_datetime_picker')
+            ->add('createdAt', DateTimePickerType::class)
             ->add('body')
             ->add('email')
             ->add('website')
-            ->add('state', 'sonata_comment_status', ['translation_domain' => 'SonataCommentBundle'])
-            ->add('private', 'checkbox', ['required' => false])
+            ->add('state', CommentStatusType::class, [
+                'translation_domain' => 'SonataCommentBundle',
+            ])
+            ->add('private', CheckboxType::class, [
+                'required' => false,
+            ])
         ;
     }
 
