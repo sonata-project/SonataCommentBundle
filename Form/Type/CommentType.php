@@ -11,8 +11,13 @@
 
 namespace Sonata\CommentBundle\Form\Type;
 
+use FOS\CommentBundle\Form\CommentType as FOSCommentType;
 use Sonata\CommentBundle\Note\NoteProvider;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
@@ -52,21 +57,21 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         if ($options['add_author']) {
-            $builder->add('authorName', 'text', ['required' => true]);
+            $builder->add('authorName', TextType::class, ['required' => true]);
 
             $this->vars['add_author'] = $options['add_author'];
         }
 
         if ($options['show_note']) {
-            $builder->add('note', 'choice', [
+            $builder->add('note', ChoiceType::class, [
                 'required' => false,
                 'choices' => $this->noteProvider->getValues(),
             ]);
         }
 
         $builder
-            ->add('website', 'url', ['required' => false])
-            ->add('email', 'email', ['required' => false])
+            ->add('website', UrlType::class, ['required' => false])
+            ->add('email', EmailType::class, ['required' => false])
         ;
     }
 
@@ -112,6 +117,6 @@ class CommentType extends AbstractType
      */
     public function getParent()
     {
-        return 'fos_comment_comment';
+        return FOSCommentType::class;
     }
 }
