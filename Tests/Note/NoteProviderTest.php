@@ -11,6 +11,7 @@
 
 namespace Sonata\CommentBundle\Tests\Note;
 
+use PHPUnit\Framework\TestCase;
 use Sonata\CommentBundle\Note\NoteProvider;
 
 /**
@@ -18,7 +19,7 @@ use Sonata\CommentBundle\Note\NoteProvider;
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
-class NoteProviderTest extends \PHPUnit_Framework_TestCase
+class NoteProviderTest extends TestCase
 {
     /**
      * Test findAverageNote() method.
@@ -26,7 +27,7 @@ class NoteProviderTest extends \PHPUnit_Framework_TestCase
     public function testFindAverageNote()
     {
         // Given
-        $thread = $this->getMock('Sonata\CommentBundle\Model\Thread');
+        $thread = $this->createMock('Sonata\CommentBundle\Model\Thread');
 
         $commentManager = $this->getMockBuilder('Sonata\CommentBundle\Manager\CommentManager')
             ->disableOriginalConstructor()
@@ -48,7 +49,7 @@ class NoteProviderTest extends \PHPUnit_Framework_TestCase
     public function testGetValues()
     {
         // Given
-        $thread = $this->getMock('Sonata\CommentBundle\Model\Thread');
+        $thread = $this->createMock('Sonata\CommentBundle\Model\Thread');
 
         $commentManager = $this->getMockBuilder('Sonata\CommentBundle\Manager\CommentManager')
             ->disableOriginalConstructor()

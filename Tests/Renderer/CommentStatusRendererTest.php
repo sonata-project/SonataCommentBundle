@@ -11,6 +11,7 @@
 
 namespace Sonata\CommentBundle\Tests\Renderer;
 
+use PHPUnit\Framework\TestCase;
 use Sonata\CommentBundle\Model\Comment;
 use Sonata\CommentBundle\Renderer\CommentStatusRenderer;
 
@@ -19,7 +20,7 @@ use Sonata\CommentBundle\Renderer\CommentStatusRenderer;
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
-class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
+class CommentStatusRendererTest extends TestCase
 {
     /**
      * Should handle only Comment model class.
@@ -31,7 +32,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
         $comment = new \DateTime();
         $this->assertFalse($commentStatusRenderer->handlesObject($comment));
 
-        $comment = $this->getMock('Sonata\CommentBundle\Model\Comment');
+        $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
         $this->assertTrue($commentStatusRenderer->handlesObject($comment));
 
         foreach (['moderate', 'invalid', 'valid'] as $correctStatusType) {
@@ -48,7 +49,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
     {
         $commentStatusRenderer = new CommentStatusRenderer();
 
-        $comment = $this->getMock('Sonata\CommentBundle\Model\Comment');
+        $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
         $comment->expects($this->once())->method('getState')->will($this->returnValue(array_rand(Comment::getStateList())));
 
         $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), ['success', 'info', 'important']);
@@ -61,7 +62,7 @@ class CommentStatusRendererTest extends \PHPUnit_Framework_TestCase
     {
         $commentStatusRenderer = new CommentStatusRenderer();
 
-        $comment = $this->getMock('Sonata\CommentBundle\Model\Comment');
+        $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
         $comment->expects($this->once())->method('getState')->will($this->returnValue(8));
 
         $this->assertEquals('default_value', $commentStatusRenderer->getStatusClass($comment, 'statusName', 'default_value'));
