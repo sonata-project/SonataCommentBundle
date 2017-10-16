@@ -11,6 +11,7 @@
 
 namespace Sonata\CommentBundle\Tests\Entity;
 
+use PHPUnit\Framework\TestCase;
 use Sonata\CommentBundle\Entity\BaseThread;
 
 /**
@@ -18,7 +19,7 @@ use Sonata\CommentBundle\Entity\BaseThread;
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
-class BaseThreadTest extends \PHPUnit_Framework_TestCase
+class BaseThreadTest extends TestCase
 {
     /**
      * Tests setters & getters.
@@ -56,7 +57,7 @@ class BaseThreadTest extends \PHPUnit_Framework_TestCase
         }
 
         // Given
-        $category = $this->getMock('Sonata\ClassificationBundle\Model\CategoryInterface');
+        $category = $this->createMock('Sonata\ClassificationBundle\Model\CategoryInterface');
         $category->expects($this->once())->method('getName')->will($this->returnValue('my-category'));
 
         $thread = new BaseThread();

@@ -11,6 +11,7 @@
 
 namespace Sonata\CommentBundle\Tests\Entity;
 
+use PHPUnit\Framework\TestCase;
 use Sonata\CommentBundle\Entity\BaseComment;
 use Sonata\CommentBundle\Entity\BaseThread;
 
@@ -19,7 +20,7 @@ use Sonata\CommentBundle\Entity\BaseThread;
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
-class BaseCommentTest extends \PHPUnit_Framework_TestCase
+class BaseCommentTest extends TestCase
 {
     public function testGetters()
     {
