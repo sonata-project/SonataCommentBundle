@@ -11,6 +11,7 @@
 
 namespace Sonata\CommentBundle\Tests\Document;
 
+use PHPUnit\Framework\TestCase;
 use Sonata\CommentBundle\Document\BaseThread;
 
 /**
@@ -18,7 +19,7 @@ use Sonata\CommentBundle\Document\BaseThread;
  *
  * @author Vincent Composieux <vincent.composieux@gmail.com>
  */
-class BaseThreadTest extends \PHPUnit_Framework_TestCase
+class BaseThreadTest extends TestCase
 {
     public function testGetters()
     {
