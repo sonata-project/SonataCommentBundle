@@ -37,10 +37,10 @@
         "sonata-project/doctrine-orm-admin-bundle": "For doctrine ORM admin integration"
     },
     "autoload": {
-        "psr-4": { "Sonata\\CommentBundle\\": "" },
-        "exclude-from-classmap": [
-            "Tests/"
-        ]
+        "psr-4": { "Sonata\\CommentBundle\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Sonata\\CommentBundle\\Tests\\": "tests/" }
     },
     "config": {
         "sort-packages": true
