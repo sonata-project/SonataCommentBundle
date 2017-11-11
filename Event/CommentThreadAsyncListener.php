@@ -46,7 +46,7 @@ class CommentThreadAsyncListener
     {
         $identifier = $event->getSetting('id', null);
 
-        if ($identifier == null) {
+        if (null == $identifier) {
             return;
         }
 
