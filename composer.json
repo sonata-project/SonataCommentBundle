@@ -18,7 +18,7 @@
     ],
     "require": {
         "php": "^5.6 || ^7.0",
-        "friendsofsymfony/comment-bundle": "^2.0",
+        "friendsofsymfony/comment-bundle": "^2.0.13",
         "sonata-project/core-bundle": "^3.0",
         "sonata-project/doctrine-extensions": "^1.0",
         "sonata-project/easy-extends-bundle": "^2.1",
@@ -37,10 +37,10 @@
         "sonata-project/doctrine-orm-admin-bundle": "For doctrine ORM admin integration"
     },
     "autoload": {
-        "psr-4": { "Sonata\\CommentBundle\\": "" },
-        "exclude-from-classmap": [
-            "Tests/"
-        ]
+        "psr-4": { "Sonata\\CommentBundle\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Sonata\\CommentBundle\\Tests\\": "tests/" }
     },
     "config": {
         "sort-packages": true
