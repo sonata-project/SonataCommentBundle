@@ -36,7 +36,7 @@ class BaseThreadTest extends TestCase
 
         // Then
         $this->assertEquals('my-comment-thread', $thread->getId(), 'Should return correct thread identifier');
-        $this->assertEquals(true, $thread->getIsCommentable(), 'Should return if thread is commentable');
+        $this->assertTrue($thread->getIsCommentable(), 'Should return if thread is commentable');
         $this->assertEquals($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
         $this->assertEquals(5, $thread->getNumComments(), 'Should return correct number of comments');
         $this->assertEquals('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
