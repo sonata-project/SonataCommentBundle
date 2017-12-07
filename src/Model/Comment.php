@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -21,9 +23,9 @@ class Comment extends AbstractedComment
     /**
      * Available comment status.
      */
-    const STATUS_VALID = 0;
-    const STATUS_INVALID = 1;
-    const STATUS_MODERATE = 2;
+    public const STATUS_VALID = 0;
+    public const STATUS_INVALID = 1;
+    public const STATUS_MODERATE = 2;
 
     /**
      * Identifier.
@@ -77,7 +79,7 @@ class Comment extends AbstractedComment
      *
      * @param string $authorName
      */
-    public function setAuthorName($authorName)
+    public function setAuthorName($authorName): void
     {
         $this->authorName = $authorName;
     }
@@ -97,7 +99,7 @@ class Comment extends AbstractedComment
      *
      * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail($email): void
     {
         $this->email = $email;
     }
@@ -117,7 +119,7 @@ class Comment extends AbstractedComment
      *
      * @param string $website
      */
-    public function setWebsite($website)
+    public function setWebsite($website): void
     {
         $this->website = $website;
     }
@@ -137,7 +139,7 @@ class Comment extends AbstractedComment
      *
      * @param float $note
      */
-    public function setNote($note)
+    public function setNote($note): void
     {
         $this->note = $note;
     }
@@ -183,7 +185,7 @@ class Comment extends AbstractedComment
      *
      * @param bool $private
      */
-    public function setPrivate($private)
+    public function setPrivate($private): void
     {
         $this->private = $private;
     }

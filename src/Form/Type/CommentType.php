@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -54,7 +56,7 @@ class CommentType extends AbstractType
      * @param FormBuilderInterface $builder
      * @param array                $options
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if ($options['add_author']) {
             $builder->add('authorName', TextType::class, ['required' => true]);
@@ -78,7 +80,7 @@ class CommentType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver): void
     {
         $resolver->setDefaults([
             'add_author' => !$this->isSignedInterface,
@@ -91,7 +93,7 @@ class CommentType extends AbstractType
      *
      * @param bool $isSignedInterface
      */
-    public function setIsSignedInterface($isSignedInterface)
+    public function setIsSignedInterface($isSignedInterface): void
     {
         $this->isSignedInterface = $isSignedInterface;
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -32,7 +34,7 @@ class CommentThreadAsyncListener
      *
      * @param CommentThreadAsyncBlockService $blockService
      */
-    public function setBlockService(CommentThreadAsyncBlockService $blockService)
+    public function setBlockService(CommentThreadAsyncBlockService $blockService): void
     {
         $this->blockService = $blockService;
     }
@@ -42,7 +44,7 @@ class CommentThreadAsyncListener
      *
      * @param BlockEvent $event
      */
-    public function onBlock(BlockEvent $event)
+    public function onBlock(BlockEvent $event): void
     {
         $identifier = $event->getSetting('id', null);
 

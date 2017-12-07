@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -24,7 +26,7 @@ class NoteProviderTest extends TestCase
     /**
      * Test findAverageNote() method.
      */
-    public function testFindAverageNote()
+    public function testFindAverageNote(): void
     {
         // Given
         $thread = $this->createMock('Sonata\CommentBundle\Model\Thread');
@@ -46,7 +48,7 @@ class NoteProviderTest extends TestCase
     /**
      * Test getValues() method.
      */
-    public function testGetValues()
+    public function testGetValues(): void
     {
         // Given
         $thread = $this->createMock('Sonata\CommentBundle\Model\Thread');

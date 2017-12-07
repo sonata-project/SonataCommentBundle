@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -31,7 +33,7 @@ class SonataCommentExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $processor = new Processor();
         $configuration = new Configuration();
@@ -106,7 +108,7 @@ class SonataCommentExtension extends Extension
      * @param array                                                   $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function configureAdminClass($config, ContainerBuilder $container)
+    public function configureAdminClass($config, ContainerBuilder $container): void
     {
         $container->setParameter('sonata.comment.admin.comment.class', $config['admin']['comment']['class']);
         $container->setParameter('sonata.comment.admin.thread.class', $config['admin']['thread']['class']);
@@ -117,7 +119,7 @@ class SonataCommentExtension extends Extension
      * @param ContainerBuilder $container
      * @param string           $modelType
      */
-    public function configureClass($config, ContainerBuilder $container, $modelType)
+    public function configureClass($config, ContainerBuilder $container, $modelType): void
     {
         $container->setParameter(sprintf('sonata.comment.class.comment.%s', $modelType), $config['class']['comment']);
         $container->setParameter(sprintf('sonata.comment.class.thread.%s', $modelType), $config['class']['thread']);
@@ -127,7 +129,7 @@ class SonataCommentExtension extends Extension
      * @param array                                                   $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function configureController($config, ContainerBuilder $container)
+    public function configureController($config, ContainerBuilder $container): void
     {
         $container->setParameter('sonata.comment.admin.comment.controller', $config['admin']['comment']['controller']);
         $container->setParameter('sonata.comment.admin.thread.controller', $config['admin']['thread']['controller']);
@@ -137,7 +139,7 @@ class SonataCommentExtension extends Extension
      * @param array                                                   $config
      * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
      */
-    public function configureTranslationDomain($config, ContainerBuilder $container)
+    public function configureTranslationDomain($config, ContainerBuilder $container): void
     {
         $container->setParameter('sonata.comment.admin.comment.translation_domain', $config['admin']['comment']['translation']);
         $container->setParameter('sonata.comment.admin.thread.translation_domain', $config['admin']['thread']['translation']);
@@ -146,7 +148,7 @@ class SonataCommentExtension extends Extension
     /**
      * @param ContainerBuilder $container
      */
-    public function configureBlocksEvents(ContainerBuilder $container)
+    public function configureBlocksEvents(ContainerBuilder $container): void
     {
         $container
             ->getDefinition('sonata.comment.event.sonata.comment')
@@ -158,7 +160,7 @@ class SonataCommentExtension extends Extension
      * @param array            $config    A configuration array
      * @param ContainerBuilder $container Symfony container builder
      */
-    public function configureFormTypes(array $config, ContainerBuilder $container)
+    public function configureFormTypes(array $config, ContainerBuilder $container): void
     {
         $container
             ->getDefinition('sonata.comment.form.comment_status_type')
@@ -170,7 +172,7 @@ class SonataCommentExtension extends Extension
      * @param array            $config    A configuration array
      * @param ContainerBuilder $container Symfony container builder
      */
-    public function configureNotesValues(array $config, ContainerBuilder $container)
+    public function configureNotesValues(array $config, ContainerBuilder $container): void
     {
         $container
             ->getDefinition('sonata.comment.note.provider')
@@ -182,7 +184,7 @@ class SonataCommentExtension extends Extension
      * @param array            $config    A configuration array
      * @param ContainerBuilder $container Symfony container builder
      */
-    public function registerDoctrineMapping(array $config, ContainerBuilder $container)
+    public function registerDoctrineMapping(array $config, ContainerBuilder $container): void
     {
         foreach ($config['class'] as $class) {
             if (!class_exists($class)) {
@@ -228,7 +230,7 @@ class SonataCommentExtension extends Extension
      * @param ContainerBuilder $container Symfony container builder
      * @param string           $modelType Configuration model type
      */
-    public function registerSonataUserDoctrineMapping(array $config, ContainerBuilder $container, $modelType)
+    public function registerSonataUserDoctrineMapping(array $config, ContainerBuilder $container, $modelType): void
     {
         foreach ($config['class'] as $class) {
             if (!class_exists($class)) {
