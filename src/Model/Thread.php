@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -51,7 +53,7 @@ abstract class Thread extends AbstractedThread
     /**
      * @param bool $isCommentable
      */
-    public function setIsCommentable($isCommentable)
+    public function setIsCommentable($isCommentable): void
     {
         $this->setCommentable($isCommentable);
     }
@@ -61,7 +63,7 @@ abstract class Thread extends AbstractedThread
      *
      * @param $averageNote
      */
-    public function setAverageNote($averageNote)
+    public function setAverageNote($averageNote): void
     {
         $this->averageNote = $averageNote;
     }
@@ -81,7 +83,7 @@ abstract class Thread extends AbstractedThread
      *
      * @param CategoryInterface $category
      */
-    public function setCategory(CategoryInterface $category)
+    public function setCategory(CategoryInterface $category): void
     {
         $this->category = $category;
     }

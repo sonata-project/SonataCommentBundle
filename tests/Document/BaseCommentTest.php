@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -22,7 +24,7 @@ use Sonata\CommentBundle\Document\BaseThread;
  */
 class BaseCommentTest extends TestCase
 {
-    public function testGetters()
+    public function testGetters(): void
     {
         // Given
         $thread = new BaseThread();

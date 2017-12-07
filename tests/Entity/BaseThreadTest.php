@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -24,7 +26,7 @@ class BaseThreadTest extends TestCase
     /**
      * Tests setters & getters.
      */
-    public function testGetters()
+    public function testGetters(): void
     {
         // Given
         $thread = new BaseThread();
@@ -50,7 +52,7 @@ class BaseThreadTest extends TestCase
     /**
      * Tests category setter & getter if using SonataClassificationBundle.
      */
-    public function testCategoryGetters()
+    public function testCategoryGetters(): void
     {
         if (!interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
             $this->markTestSkipped('Sonata\ClassificationBundle\Model\CategoryInterface does not exist');

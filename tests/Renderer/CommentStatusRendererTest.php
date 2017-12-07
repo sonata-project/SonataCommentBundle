@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -25,7 +27,7 @@ class CommentStatusRendererTest extends TestCase
     /**
      * Should handle only Comment model class.
      */
-    public function testHandles()
+    public function testHandles(): void
     {
         $commentStatusRenderer = new CommentStatusRenderer();
 
@@ -45,7 +47,7 @@ class CommentStatusRendererTest extends TestCase
     /**
      * Should returns valid status classes depending on comment state.
      */
-    public function testGetValidClass()
+    public function testGetValidClass(): void
     {
         $commentStatusRenderer = new CommentStatusRenderer();
 
@@ -58,7 +60,7 @@ class CommentStatusRendererTest extends TestCase
     /**
      * Should return default value if comment state is not caught.
      */
-    public function testGetInvalidClass()
+    public function testGetInvalidClass(): void
     {
         $commentStatusRenderer = new CommentStatusRenderer();
 
