@@ -54,4 +54,4 @@ Else, you can use this Twig include:
 
 .. code-block:: jinja
 
-    {% include 'SonataCommentBundle:Thread:async.html.twig' with {'id': 'my-custom-thread-identifier'} %}
+    {% include '@SonataComment/Thread/async.html.twig' with {'id': 'my-custom-thread-identifier'} %}

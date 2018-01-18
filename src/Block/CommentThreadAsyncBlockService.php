@@ -34,7 +34,7 @@ class CommentThreadAsyncBlockService extends BaseBlockService
     {
         $resolver->setDefaults([
             'id' => null,
-            'template' => 'SonataCommentBundle:Block:thread_async.html.twig',
+            'template' => '@SonataComment/Block/thread_async.html.twig',
         ]);
     }
 

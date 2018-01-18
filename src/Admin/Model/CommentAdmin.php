@@ -65,7 +65,7 @@ abstract class CommentAdmin extends Admin
             ->add('body', 'text')
             ->add('createdAt', 'datetime')
             ->add('note', 'float')
-            ->add('state', 'string', ['template' => 'SonataCommentBundle:CommentAdmin:list_status.html.twig'])
+            ->add('state', 'string', ['template' => '@SonataComment/CommentAdmin/list_status.html.twig'])
             ->add('private', 'boolean', ['editable' => true])
         ;
     }
