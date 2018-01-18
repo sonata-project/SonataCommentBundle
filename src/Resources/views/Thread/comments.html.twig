@@ -31,6 +31,6 @@
 
 {% for commentinfo in comments %}
     {% if not commentinfo.comment.private %}
-        {% include "FOSCommentBundle:Thread:comment.html.twig" with { "children": commentinfo.children, "comment": commentinfo.comment, "depth": depth, "view": view } %}
+        {% include "@FOSComment/Thread/comment.html.twig" with { "children": commentinfo.children, "comment": commentinfo.comment, "depth": depth, "view": view } %}
     {% endif %}
 {% endfor %}
