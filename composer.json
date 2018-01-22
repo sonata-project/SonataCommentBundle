@@ -2,7 +2,10 @@
     "name": "sonata-project/comment-bundle",
     "type": "symfony-bundle",
     "description": "Integrate the FOSCommentBundle in the Sonata Project",
-    "keywords": ["comment", "sonata"],
+    "keywords": [
+        "comment",
+        "sonata"
+    ],
     "homepage": "https://sonata-project.org/bundles/comment",
     "license": "MIT",
     "authors": [
@@ -35,18 +38,22 @@
     "suggest": {
         "sonata-project/doctrine-orm-admin-bundle": "For doctrine ORM admin integration"
     },
-    "autoload": {
-        "psr-4": { "Sonata\\CommentBundle\\": "src/" }
-    },
-    "autoload-dev": {
-        "psr-4": { "Sonata\\CommentBundle\\Tests\\": "tests/" }
-    },
     "config": {
         "sort-packages": true
     },
     "extra": {
         "branch-alias": {
             "dev-master": "4.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Sonata\\CommentBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sonata\\CommentBundle\\Tests\\": "tests/"
         }
     }
 }
