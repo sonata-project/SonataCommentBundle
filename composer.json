@@ -30,7 +30,11 @@
         "symfony/http-foundation": "^2.8 || ^3.2 || ^4.0",
         "symfony/security": "^2.8 || ^3.2 || ^4.0"
     },
+    "conflict": {
+        "sonata-project/block-bundle": "<3.11"
+    },
     "require-dev": {
+        "sonata-project/block-bundle": "^3.11",
         "sonata-project/classification-bundle": "^3.0",
         "sonata-project/media-bundle": "^3.6",
         "symfony/phpunit-bridge": "^3.3 || ^4.0"
