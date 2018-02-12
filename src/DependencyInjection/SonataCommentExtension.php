@@ -45,6 +45,7 @@ class SonataCommentExtension extends Extension
         $loader->load('note.xml');
         $loader->load('orm.xml');
         $loader->load('twig.xml');
+        $loader->load('command.xml');
 
         if ($this->hasBundle('SonataBlockBundle', $container)) {
             $loader->load('block.xml');
