@@ -38,7 +38,7 @@
         "sonata-project/block-bundle": "<3.11"
     },
     "require-dev": {
-        "sonata-project/admin-bundle": "^3.31",
+        "sonata-project/admin-bundle": "^3.35",
         "sonata-project/block-bundle": "^3.11",
         "sonata-project/classification-bundle": "^3.6",
         "symfony/phpunit-bridge": "^4.0"
