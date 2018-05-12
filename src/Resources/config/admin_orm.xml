@@ -23,6 +23,7 @@
             </call>
             <call method="addChild">
                 <argument type="service" id="sonata.comment.admin.comment"/>
+                <argument>thread</argument>
             </call>
         </service>
     </services>
