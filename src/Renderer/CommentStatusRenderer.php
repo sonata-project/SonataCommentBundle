@@ -27,7 +27,7 @@ class CommentStatusRenderer implements StatusClassRendererInterface
     public function handlesObject($object, $statusName = null)
     {
         return $object instanceof Comment
-            && in_array($statusName, ['moderate', 'invalid', 'valid', null]);
+            && \in_array($statusName, ['moderate', 'invalid', 'valid', null]);
     }
 
     /**
