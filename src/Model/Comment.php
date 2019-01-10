@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the Sonata Project package.
  *
@@ -21,9 +23,9 @@ class Comment extends AbstractedComment
     /**
      * Available comment status.
      */
-    const STATUS_VALID = 0;
-    const STATUS_INVALID = 1;
-    const STATUS_MODERATE = 2;
+    public const STATUS_VALID = 0;
+    public const STATUS_INVALID = 1;
+    public const STATUS_MODERATE = 2;
 
     /**
      * Identifier.
