@@ -8,7 +8,8 @@ Usage
 Entities properties
 -------------------
 
-In addition to ``FOSCommentBundle`` entities properties, we have added some properties. Let's have a look:
+In addition to ``FOSCommentBundle`` entities properties,
+we have added some properties:
 
 Comment
 ^^^^^^^
@@ -33,11 +34,12 @@ Thread
 Command
 -------
 
-In order to keep the ``averageNote`` of all threads up-to-date, you can use the following Symfony command:
+In order to keep the ``averageNote`` of all threads up-to-date,
+you can use the following command:
 
 .. code-block:: bash
 
-    php app/console sonata:comment:sync
+    bin/console sonata:comment:sync
 
 Add a new comment thread
 ------------------------

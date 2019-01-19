@@ -12,18 +12,13 @@ This is a ``FOSCommentBundle`` feature. We will explain to you here how to enabl
 Implement SignedCommentInterface
 --------------------------------
 
-Open entity ``Application\Sonata\CommentBundle\Entity\Comment`` and implement the following methods and interface:
+Open ``App\\Entity\Comment`` and implement the following methods and interface::
 
-.. code-block:: php
-
-    <?php
-
-    namespace Application\Sonata\CommentBundle\Entity;
+    namespace App\Entity;
 
     use FOS\CommentBundle\Model\SignedCommentInterface;
+    use Sonata\CommentBundle\Entity\BaseComment;
     use Symfony\Component\Security\Core\User\UserInterface;
-
-    use Sonata\CommentBundle\Entity\BaseComment as BaseComment;
 
     class Comment extends BaseComment implements SignedCommentInterface
     {
@@ -47,30 +42,20 @@ Open entity ``Application\Sonata\CommentBundle\Entity\Comment`` and implement th
             return $this->id;
         }
 
-        /**
-         * {@inheritdoc}
-         */
         public function setAuthor(UserInterface $author)
         {
             $this->author = $author;
         }
 
-        /**
-         * {@inheritdoc}
-         */
         public function getAuthor()
         {
             return $this->author;
         }
 
-        /**
-         * {@inheritdoc}
-         */
         public function getAuthorName()
         {
             return $this->getAuthor() ? $this->getAuthor()->getUsername() : 'Anonymous';
         }
     }
 
-
-That's it, you can now use your authenticated users as comments authors.
+You can now use your authenticated users as comments authors.
