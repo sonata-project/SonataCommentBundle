@@ -21,6 +21,7 @@ their configuration step; you will find everything you need in their own
 installation chapter.
 
 .. note::
+
     If a dependency is already installed somewhere in your project or in
     another dependency, you won't need to install it again.
 
@@ -36,66 +37,33 @@ Use these commands:
     composer update
 
 Next, be sure to enable the bundles in your ``bundles.php`` file if they
-are not already enabled:
-
-.. code-block:: php
-
-    <?php
+are not already enabled::
 
     // config/bundles.php
 
     return [
-        //...
+        // ...
         FOS\CommentBundle\FOSCommentBundle::class => ['all' => true],
         Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
         Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
         Sonata\CommentBundle\SonataCommentBundle::class => ['all' => true],
     ];
 
-.. note::
-    If you are not using Symfony Flex, you should enable bundles in your
-    ``AppKernel.php``.
-
-.. code-block:: php
-
-    <?php
-
-    // app/AppKernel.php
-
-    public function registerbundles()
-    {
-        return array(
-            new FOS\CommentBundle\FOSCommentBundle(),
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Sonata\CommentBundle\SonataCommentBundle(),
-            // ...
-        );
-    }
-
 Configuration
 -------------
-
-.. note::
-    If you are not using Symfony Flex, all configuration in this section should
-    be added to ``app/config/config.yml``.
 
 SonataCommentBundle Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: yaml
 
-    # config/packages/sonata.yaml
+    # config/packages/sonata_comment.yaml
 
     sonata_comment:
         manager_type: orm # can be 'orm' or 'mongodb'
         class:
-            comment: App\Application\Sonata\CommentBundle\Entity\Comment # This is an optional value
-            thread: App\Application\Sonata\CommentBundle\Entity\Thread   # This is an optional value
-
-.. note::
-    If you are not using Symfony Flex, add classes without the ``App\``
-    part.
+            comment: App\Entity\Comment # This is an optional value
+            thread: App\Entity\Thread   # This is an optional value
 
 FOSCommentBundle Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,15 +76,11 @@ FOSCommentBundle Configuration
         db_driver: orm
         class:
             model:
-                comment: App\Application\Sonata\CommentBundle\Entity\Comment
-                thread: App\Application\Sonata\CommentBundle\Entity\Thread
+                comment: App\Entity\Comment
+                thread: App\Entity\Thread
         form:
             comment:
                 type: sonata_comment_comment
-
-.. note::
-    If you are not using Symfony Flex, add classes without the ``App\``
-    part.
 
 Doctrine Configuration
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -140,15 +104,13 @@ Add these bundles in the config mapping definition (or enable `auto_mapping <htt
 
 Extending the Bundle
 --------------------
+
 At this point, the bundle is functional, but not quite ready yet. You need to
 generate the correct entities for the media:
 
 .. code-block:: bash
 
     bin/console sonata:easy-extends:generate SonataCommentBundle --dest=src --namespace_prefix=App
-
-.. note::
-    If you are not using Symfony Flex, use command without ``--namespace_prefix=App``.
 
 With provided parameters, the files are generated in ``src/Application/Sonata/CommentBundle``.
 
@@ -160,47 +122,17 @@ With provided parameters, the files are generated in ``src/Application/Sonata/Co
     point to a global namespace. For instance the user will be
     ``App\Application\Sonata\CommentBundle\Entity\Thread``.
 
-.. note::
-    If you are not using Symfony Flex, the namespace will be ``Application\Sonata\CommentBundle\Entity``.
-
-Now, add the new ``Application`` Bundle into the ``bundles.php``:
-
-.. code-block:: php
-
-    <?php
+Now, add the new ``Application`` Bundle into the ``bundles.php``::
 
     // config/bundles.php
 
     return [
-        //...
+        // ...
         App\Application\Sonata\CommentBundle\ApplicationSonataCommentBundle::class => ['all' => true],
     ];
 
-.. note::
-    If you are not using Symfony Flex, add the new ``Application`` Bundle into your
-    ``AppKernel.php``.
-
-.. code-block:: php
-
-    <?php
-
-    // app/AppKernel.php
-
-    class AppKernel {
-        public function registerbundles()
-        {
-            return array(
-                // Application Bundles
-                // ...
-                new Application\Sonata\CommentBundle\ApplicationSonataCommentBundle(),
-                // ...
-
-            )
-        }
-    }
-
-The only thing left is to update your schema:
+Update your schema database schema afterwards:
 
 .. code-block:: bash
 
-    php bin/console doctrine:schema:update --force
+    bin/console doctrine:schema:update --force
