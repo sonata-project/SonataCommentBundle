@@ -42,7 +42,7 @@ class NoteProviderTest extends TestCase
         $averageNote = $provider->findAverageNote($thread);
 
         // Then
-        $this->assertEquals(3.5, $averageNote, 'Note should be the same as comment manager query returns');
+        $this->assertSame(3.5, $averageNote, 'Note should be the same as comment manager query returns');
     }
 
     /**
@@ -63,6 +63,6 @@ class NoteProviderTest extends TestCase
         $notes = $provider->getValues();
 
         // Then
-        $this->assertEquals([1, 2, 3], $notes, 'Should return notes given in constructor');
+        $this->assertSame([1, 2, 3], $notes, 'Should return notes given in constructor');
     }
 }

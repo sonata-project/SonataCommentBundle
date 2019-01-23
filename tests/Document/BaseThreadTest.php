@@ -37,10 +37,10 @@ class BaseThreadTest extends TestCase
         $thread->setPermalink('my-custom-permalink');
 
         // Then
-        $this->assertEquals('my-comment-thread', $thread->getId(), 'Should return correct thread identifier');
+        $this->assertSame('my-comment-thread', $thread->getId(), 'Should return correct thread identifier');
         $this->assertTrue($thread->getIsCommentable(), 'Should return if thread is commentable');
-        $this->assertEquals($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
-        $this->assertEquals(5, $thread->getNumComments(), 'Should return correct number of comments');
-        $this->assertEquals('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
+        $this->assertSame($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
+        $this->assertSame(5, $thread->getNumComments(), 'Should return correct number of comments');
+        $this->assertSame('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
     }
 }
