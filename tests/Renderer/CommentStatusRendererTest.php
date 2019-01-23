@@ -67,6 +67,6 @@ class CommentStatusRendererTest extends TestCase
         $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
         $comment->expects($this->once())->method('getState')->will($this->returnValue(8));
 
-        $this->assertEquals('default_value', $commentStatusRenderer->getStatusClass($comment, 'statusName', 'default_value'));
+        $this->assertSame('default_value', $commentStatusRenderer->getStatusClass($comment, 'statusName', 'default_value'));
     }
 }
