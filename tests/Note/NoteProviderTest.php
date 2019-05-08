@@ -34,7 +34,7 @@ class NoteProviderTest extends TestCase
         $commentManager = $this->getMockBuilder('Sonata\CommentBundle\Manager\CommentManager')
             ->disableOriginalConstructor()
             ->getMock();
-        $commentManager->expects($this->once())->method('findAverageNote')->will($this->returnValue(3.5));
+        $commentManager->expects($this->once())->method('findAverageNote')->willReturn(3.5);
 
         $provider = new NoteProvider($commentManager, [0, 1, 2, 3]);
 
