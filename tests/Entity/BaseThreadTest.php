@@ -60,7 +60,7 @@ class BaseThreadTest extends TestCase
 
         // Given
         $category = $this->createMock('Sonata\ClassificationBundle\Model\CategoryInterface');
-        $category->expects($this->once())->method('getName')->will($this->returnValue('my-category'));
+        $category->expects($this->once())->method('getName')->willReturn('my-category');
 
         $thread = new BaseThread();
         $thread->setId('my-comment-thread');
