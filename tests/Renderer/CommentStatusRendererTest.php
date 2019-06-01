@@ -52,7 +52,7 @@ class CommentStatusRendererTest extends TestCase
         $commentStatusRenderer = new CommentStatusRenderer();
 
         $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
-        $comment->expects($this->once())->method('getState')->will($this->returnValue(array_rand(Comment::getStateList())));
+        $comment->expects($this->once())->method('getState')->willReturn(array_rand(Comment::getStateList()));
 
         $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), ['success', 'info', 'important']);
     }
@@ -65,7 +65,7 @@ class CommentStatusRendererTest extends TestCase
         $commentStatusRenderer = new CommentStatusRenderer();
 
         $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
-        $comment->expects($this->once())->method('getState')->will($this->returnValue(8));
+        $comment->expects($this->once())->method('getState')->willReturn(8);
 
         $this->assertSame('default_value', $commentStatusRenderer->getStatusClass($comment, 'statusName', 'default_value'));
     }
