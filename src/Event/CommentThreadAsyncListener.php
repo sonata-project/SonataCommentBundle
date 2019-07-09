@@ -31,8 +31,6 @@ class CommentThreadAsyncListener
 
     /**
      * Add a comment thread asynchronous block service.
-     *
-     * @param CommentThreadAsyncBlockService $blockService
      */
     public function setBlockService(CommentThreadAsyncBlockService $blockService)
     {
@@ -41,8 +39,6 @@ class CommentThreadAsyncListener
 
     /**
      * Add blocks services to event.
-     *
-     * @param BlockEvent $event
      */
     public function onBlock(BlockEvent $event)
     {

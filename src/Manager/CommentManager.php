@@ -21,7 +21,6 @@ class CommentManager extends BaseCommentManager
     /**
      * Returns Thread average note.
      *
-     * @param Thread $thread
      *
      * @return float
      */
