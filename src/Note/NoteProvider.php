@@ -58,7 +58,6 @@ class NoteProvider
     /**
      * Returns Thread average note.
      *
-     * @param Thread $thread
      *
      * @return float
      */

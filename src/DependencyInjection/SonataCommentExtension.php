@@ -88,7 +88,6 @@ class SonataCommentExtension extends Extension
     }
 
     /**
-     * @param array  $config
      * @param string $modelType
      *
      * @return array
@@ -106,8 +105,7 @@ class SonataCommentExtension extends Extension
     }
 
     /**
-     * @param array                                                   $config
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param array $config
      */
     public function configureAdminClass($config, ContainerBuilder $container)
     {
@@ -116,9 +114,8 @@ class SonataCommentExtension extends Extension
     }
 
     /**
-     * @param array            $config
-     * @param ContainerBuilder $container
-     * @param string           $modelType
+     * @param array  $config
+     * @param string $modelType
      */
     public function configureClass($config, ContainerBuilder $container, $modelType)
     {
@@ -127,8 +124,7 @@ class SonataCommentExtension extends Extension
     }
 
     /**
-     * @param array                                                   $config
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param array $config
      */
     public function configureController($config, ContainerBuilder $container)
     {
@@ -137,8 +133,7 @@ class SonataCommentExtension extends Extension
     }
 
     /**
-     * @param array                                                   $config
-     * @param \Symfony\Component\DependencyInjection\ContainerBuilder $container
+     * @param array $config
      */
     public function configureTranslationDomain($config, ContainerBuilder $container)
     {
@@ -146,9 +141,6 @@ class SonataCommentExtension extends Extension
         $container->setParameter('sonata.comment.admin.thread.translation_domain', $config['admin']['thread']['translation']);
     }
 
-    /**
-     * @param ContainerBuilder $container
-     */
     public function configureBlocksEvents(ContainerBuilder $container)
     {
         $container
