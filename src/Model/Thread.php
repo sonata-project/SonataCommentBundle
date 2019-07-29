@@ -80,8 +80,6 @@ abstract class Thread extends AbstractedThread
 
     /**
      * Sets a thread category.
-     *
-     * @param CategoryInterface $category
      */
     public function setCategory(CategoryInterface $category): void
     {

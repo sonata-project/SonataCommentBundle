@@ -27,10 +27,7 @@ class ThreadManager extends BaseThreadManager
     /**
      * Constructor.
      *
-     * @param CommentManager           $commentManager
-     * @param EventDispatcherInterface $dispatcher
-     * @param EntityManager            $em
-     * @param string                   $class
+     * @param string $class
      */
     public function __construct(CommentManager $commentManager, EventDispatcherInterface $dispatcher, EntityManager $em, $class)
     {
