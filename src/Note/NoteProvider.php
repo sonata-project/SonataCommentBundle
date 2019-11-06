@@ -58,7 +58,6 @@ class NoteProvider
     /**
      * Returns Thread average note.
      *
-     *
      * @return float
      */
     public function findAverageNote(Thread $thread)
