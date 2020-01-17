@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -51,7 +52,7 @@ class CommentType extends AbstractType
     /**
      * Configures a Comment form.
      */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         if ($options['add_author']) {
             $builder->add('authorName', TextType::class, ['required' => true]);
@@ -77,7 +78,15 @@ class CommentType extends AbstractType
      *
      * @deprecated since sonata-project/comment-bundle 3.x, to be removed in version 4.0.
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function setDefaultOptions(OptionsResolverInterface $resolver): void
+    {
+        $resolver->setDefaults([
+            'add_author' => !$this->isSignedInterface,
+            'show_note' => true,
+        ]);
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'add_author' => !$this->isSignedInterface,
@@ -90,15 +99,12 @@ class CommentType extends AbstractType
      *
      * @param bool $isSignedInterface
      */
-    public function setIsSignedInterface($isSignedInterface)
+    public function setIsSignedInterface($isSignedInterface): void
     {
         $this->isSignedInterface = $isSignedInterface;
     }
 
-    /**
-     * @return string
-     */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'sonata_comment_comment';
     }
@@ -108,15 +114,12 @@ class CommentType extends AbstractType
      *
      * @deprecated since sonata-project/comment-bundle 3.x, to be removed in version 4.0.
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
-    public function getParent()
+    public function getParent(): string
     {
         return FOSCommentType::class;
     }

@@ -29,10 +29,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class CommentThreadAsyncBlockService extends BaseBlockService
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function configureSettings(OptionsResolver $resolver)
+    public function configureSettings(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'id' => null,
@@ -40,10 +37,7 @@ class CommentThreadAsyncBlockService extends BaseBlockService
         ]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function execute(BlockContextInterface $blockContext, Response $response = null)
+    public function execute(BlockContextInterface $blockContext, Response $response = null): Response
     {
         return $this->renderResponse($blockContext->getTemplate(), [
             'block' => $blockContext->getBlock(),
@@ -51,10 +45,7 @@ class CommentThreadAsyncBlockService extends BaseBlockService
         ], $response);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function buildEditForm(FormMapper $form, BlockInterface $block)
+    public function buildEditForm(FormMapper $form, BlockInterface $block): void
     {
         $form->add('settings', ImmutableArrayType::class, [
             'keys' => [

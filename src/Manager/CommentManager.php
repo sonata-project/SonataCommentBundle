@@ -18,12 +18,7 @@ use Sonata\CommentBundle\Model\Thread;
 
 class CommentManager extends BaseCommentManager
 {
-    /**
-     * Returns Thread average note.
-     *
-     * @return float
-     */
-    public function findAverageNote(Thread $thread)
+    public function findAverageNote(Thread $thread): float
     {
         return $this->repository->createQueryBuilder('c')
             ->select('avg(c.note)')
