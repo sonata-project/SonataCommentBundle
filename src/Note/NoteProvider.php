@@ -33,34 +33,18 @@ class NoteProvider
      */
     protected $values;
 
-    /**
-     * Constructor.
-     *
-     * @param CommentManager $commentManager A comment manager
-     * @param array          $values         An array of notes values
-     */
     public function __construct(CommentManager $commentManager, array $values)
     {
         $this->commentManager = $commentManager;
         $this->values = $values;
     }
 
-    /**
-     * Returns notes values.
-     *
-     * @return array
-     */
-    public function getValues()
+    public function getValues(): array
     {
         return $this->values;
     }
 
-    /**
-     * Returns Thread average note.
-     *
-     * @return float
-     */
-    public function findAverageNote(Thread $thread)
+    public function findAverageNote(Thread $thread): float
     {
         return $this->commentManager->findAverageNote($thread);
     }

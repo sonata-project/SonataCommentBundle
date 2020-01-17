@@ -25,18 +25,21 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  */
 class Configuration implements ConfigurationInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('sonata_comment');
+        $treeBuilder = new TreeBuilder('sonata_comment');
+        // NEXT_MAJOR: drop support for symfony/config < 4.2
+        // Keep compatibility with symfony/config < 4.2
+        if (!method_exists($treeBuilder, 'getRootNode')) {
+            $node = $treeBuilder->root('sonata_comment');
+        } else {
+            $node = $treeBuilder->getRootNode();
+        }
 
         $supportedManagerTypes = ['orm', 'mongodb'];
         $supportedProviders = ['fos_comment'];
 
-        $rootNode
+        $node
             ->children()
                 ->scalarNode('provider')
                     ->defaultValue('fos_comment')
