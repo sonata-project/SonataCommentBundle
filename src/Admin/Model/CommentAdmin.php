@@ -23,9 +23,6 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 abstract class CommentAdmin extends Admin
 {
-    /**
-     * {@inheritdoc}
-     */
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper
@@ -42,9 +39,6 @@ abstract class CommentAdmin extends Admin
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
     {
         $datagridMapper
@@ -57,9 +51,6 @@ abstract class CommentAdmin extends Admin
         ;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function configureListFields(ListMapper $listMapper): void
     {
         $listMapper

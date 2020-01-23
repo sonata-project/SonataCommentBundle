@@ -23,18 +23,12 @@ use Sonata\CoreBundle\Component\Status\StatusClassRendererInterface;
  */
 class CommentStatusRenderer implements StatusClassRendererInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function handlesObject($object, $statusName = null)
     {
         return $object instanceof Comment
             && \in_array($statusName, ['moderate', 'invalid', 'valid', null], true);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getStatusClass($object, $statusName = null, $default = '')
     {
         switch ($object->getState()) {

@@ -13,24 +13,19 @@ declare(strict_types=1);
 
 namespace Sonata\CommentBundle\Command;
 
+use Sonata\CommentBundle\Manager\ThreadManager;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class SynchronizeCommand extends ContainerAwareCommand
 {
-    /**
-     * {@inheritdoc}
-     */
     public function configure(): void
     {
         $this->setName('sonata:comment:sync');
         $this->setDescription('Synchronize comments count (average thread note, ...)');
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function execute(InputInterface $input, OutputInterface $output): void
     {
         $output->writeln('Updating thread comments average note...');
@@ -40,12 +35,7 @@ class SynchronizeCommand extends ContainerAwareCommand
         $output->writeln('<info>done!</info>');
     }
 
-    /**
-     * Returns Thread manager.
-     *
-     * @return \Sonata\CommentBundle\Manager\ThreadManager
-     */
-    protected function getThreadManager()
+    protected function getThreadManager(): ThreadManager
     {
         return $this->getContainer()->get('sonata.comment.manager.thread');
     }

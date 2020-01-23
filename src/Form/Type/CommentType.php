@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
@@ -85,6 +86,14 @@ class CommentType extends AbstractType
         ]);
     }
 
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'add_author' => !$this->isSignedInterface,
+            'show_note' => true,
+        ]);
+    }
+
     /**
      * Sets if comment model is implementing signed interface.
      *
@@ -95,10 +104,7 @@ class CommentType extends AbstractType
         $this->isSignedInterface = $isSignedInterface;
     }
 
-    /**
-     * @return string
-     */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'sonata_comment_comment';
     }
@@ -108,15 +114,12 @@ class CommentType extends AbstractType
      *
      * @deprecated since sonata-project/comment-bundle 3.x, to be removed in version 4.0.
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->getBlockPrefix();
     }
 
-    /**
-     * @return string
-     */
-    public function getParent()
+    public function getParent(): string
     {
         return FOSCommentType::class;
     }
