@@ -17,7 +17,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\BlockBundle\Block\BaseBlockService;
 use Sonata\BlockBundle\Block\BlockContextInterface;
 use Sonata\BlockBundle\Model\BlockInterface;
-use Sonata\CoreBundle\Form\Type\ImmutableArrayType;
+use Sonata\Form\Type\ImmutableArrayType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\OptionsResolver\OptionsResolver;

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Sonata\CommentBundle\Tests\Resources;
 
-use Sonata\CoreBundle\Test\XliffValidatorTestCase;
+use Sonata\CommentBundle\Test\XliffValidatorTestCase;
 
 /**
  * This is a XliffTest class to ensure that translations are correctly formatted.
@@ -23,7 +23,7 @@ class XliffTest extends XliffValidatorTestCase
     /**
      * @return array List all path to validate xliff
      */
-    public function getXliffPaths()
+    public function getXliffPaths(): array
     {
         return [[__DIR__.'/../../Resources/translations']];
     }

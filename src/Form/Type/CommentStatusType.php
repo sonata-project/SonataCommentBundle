@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace Sonata\CommentBundle\Form\Type;
 
-use Sonata\CoreBundle\Form\Type\StatusType;
+use Sonata\Form\Type\BaseStatusType;
 
-class CommentStatusType extends StatusType
+class CommentStatusType extends BaseStatusType
 {
 }

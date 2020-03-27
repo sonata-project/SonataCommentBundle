@@ -44,7 +44,9 @@ are not already enabled::
     return [
         // ...
         FOS\CommentBundle\FOSCommentBundle::class => ['all' => true],
-        Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
+        Sonata\Form\Bridge\Symfony\Bundle\SonataFormBundle::class => ['all' => true],
+        Sonata\Doctrine\Bridge\Symfony\Bundle\SonataDoctrineBundle::class => ['all' => true],
+        Sonata\Twig\Bridge\Symfony\Bundle\SonataTwigBundle::class => ['all' => true],
         Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
         Sonata\CommentBundle\SonataCommentBundle::class => ['all' => true],
     ];
