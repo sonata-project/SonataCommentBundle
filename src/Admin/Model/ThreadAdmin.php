@@ -65,7 +65,7 @@ abstract class ThreadAdmin extends Admin
         ;
     }
 
-    protected function configureSideMenu(MenuItemInterface $menu, $action, AdminInterface $childAdmin = null): void
+    protected function configureSideMenu(MenuItemInterface $menu, $action, ?AdminInterface $childAdmin = null): void
     {
         if (!$childAdmin && !\in_array($action, ['edit'], true)) {
             return;
