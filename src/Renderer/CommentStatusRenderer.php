@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Sonata\CommentBundle\Renderer;
 
 use Sonata\CommentBundle\Model\Comment;
-use Sonata\CoreBundle\Component\Status\StatusClassRendererInterface;
+use Sonata\Twig\Status\StatusClassRendererInterface;
 
 /**
  * Class CommentStatusRenderer.

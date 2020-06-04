@@ -25,24 +25,18 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class SonataCommentBundle extends Bundle
 {
     /**
-     * {@inheritdoc}
+     * @return string
      */
     public function getParent()
     {
         return 'FOSCommentBundle';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function build(ContainerBuilder $container)
     {
         $this->registerFormMapping();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function boot()
     {
         $this->registerFormMapping();
@@ -50,17 +44,21 @@ class SonataCommentBundle extends Bundle
 
     /**
      * Register form mapping information.
+     *
+     * NEXT_MAJOR: remove this method
      */
     public function registerFormMapping()
     {
-        FormHelper::registerFormTypeMapping([
-            'fos_comment_comment' => 'FOS\CommentBundle\Form\CommentType',
-            'fos_comment_commentable_thread' => 'FOS\CommentBundle\Form\CommentableThreadType',
-            'fos_comment_delete_comment' => 'FOS\CommentBundle\Form\DeleteCommentType',
-            'fos_comment_thread' => 'FOS\CommentBundle\Form\ThreadType',
-            'fos_comment_vote' => 'FOS\CommentBundle\Form\VoteType',
-            'sonata_comment_comment' => 'Sonata\CommentBundle\Form\Type\CommentType',
-            'sonata_comment_status' => 'Sonata\CommentBundle\Form\Type\CommentStatusType',
-        ]);
+        if (class_exists(FormHelper::class)) {
+            FormHelper::registerFormTypeMapping([
+                'fos_comment_comment' => 'FOS\CommentBundle\Form\CommentType',
+                'fos_comment_commentable_thread' => 'FOS\CommentBundle\Form\CommentableThreadType',
+                'fos_comment_delete_comment' => 'FOS\CommentBundle\Form\DeleteCommentType',
+                'fos_comment_thread' => 'FOS\CommentBundle\Form\ThreadType',
+                'fos_comment_vote' => 'FOS\CommentBundle\Form\VoteType',
+                'sonata_comment_comment' => 'Sonata\CommentBundle\Form\Type\CommentType',
+                'sonata_comment_status' => 'Sonata\CommentBundle\Form\Type\CommentStatusType',
+            ]);
+        }
     }
 }
