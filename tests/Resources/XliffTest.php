@@ -13,8 +13,6 @@ declare(strict_types=1);
 
 namespace Sonata\CommentBundle\Tests\Resources;
 
-use Sonata\CoreBundle\Test\XliffValidatorTestCase;
-
 /**
  * This is a XliffTest class to ensure that translations are correctly formatted.
  */
