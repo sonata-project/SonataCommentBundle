@@ -1,8 +1,6 @@
 .. index::
     single: Installation
-    single: Bundle
     single: Configuration
-    single: Extend
 
 Installation
 ============
@@ -10,15 +8,21 @@ Installation
 Prerequisites
 -------------
 
-PHP 7.1 and Symfony >=3.4 or >= 4.2 are needed to make this bundle work, there are
-also some Sonata dependencies that need to be installed and configured beforehand:
+PHP ^7.2 and Symfony ^4.4 are needed to make this bundle work, there are
+also some Sonata dependencies that need to be installed and configured beforehand.
+
+Required dependencies:
 
 * `SonataAdminBundle <https://sonata-project.org/bundles/admin>`_
-* `SonataEasyExtendsBundle <https://sonata-project.org/bundles/easy-extends>`_
+* `SonataBlockBundle <https://sonata-project.org/bundles/block>`_
 
-You will need to install those in their 2.0 or 3.0 branches. Follow also
-their configuration step; you will find everything you need in their own
-installation chapter.
+And the persistence bundle (choose one):
+
+* `SonataDoctrineOrmAdminBundle <https://sonata-project.org/bundles/doctrine-orm-admin>`_
+* `SonataDoctrineMongoDBAdminBundle <https://sonata-project.org/bundles/mongo-admin>`_
+
+Follow also their configuration step; you will find everything you need in
+their own installation chapter.
 
 .. note::
 
@@ -28,15 +32,15 @@ installation chapter.
 Enable the Bundle
 -----------------
 
-Use these commands:
+Add ``SonataCommentBundle`` via composer::
 
-.. code-block:: bash
+    composer require sonata-project/comment-bundle
 
-    composer require sonata-project/comment-bundle --no-update
-    composer require sonata-project/doctrine-orm-admin-bundle --no-update # optional
-    composer update
+.. note::
 
-Next, be sure to enable the bundles in your ``bundles.php`` file if they
+    This will install the FOSCommentBundle_, too.
+
+Next, be sure to enable the bundles in your ``config/bundles.php`` file if they
 are not already enabled::
 
     // config/bundles.php
@@ -44,29 +48,27 @@ are not already enabled::
     return [
         // ...
         FOS\CommentBundle\FOSCommentBundle::class => ['all' => true],
-        Sonata\CoreBundle\SonataCoreBundle::class => ['all' => true],
-        Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
         Sonata\CommentBundle\SonataCommentBundle::class => ['all' => true],
     ];
 
 Configuration
--------------
+=============
 
 SonataCommentBundle Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------
 
 .. code-block:: yaml
 
     # config/packages/sonata_comment.yaml
 
     sonata_comment:
-        manager_type: orm # can be 'orm' or 'mongodb'
+        manager_type: orm
         class:
-            comment: App\Entity\Comment # This is an optional value
-            thread: App\Entity\Thread   # This is an optional value
+            comment: App\Entity\SonataCommentComment
+            thread: App\Entity\SonataCommentThread
 
 FOSCommentBundle Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 .. code-block:: yaml
 
@@ -76,17 +78,16 @@ FOSCommentBundle Configuration
         db_driver: orm
         class:
             model:
-                comment: App\Entity\Comment
-                thread: App\Entity\Thread
+                comment: App\Entity\SonataCommentComment
+                thread: App\Entity\SonataCommentThread
         form:
             comment:
                 type: sonata_comment_comment
 
-Doctrine Configuration
-~~~~~~~~~~~~~~~~~~~~~~
-Add these bundles in the config mapping definition (or enable `auto_mapping <http://symfony.com/doc/2.0/reference/configuration/doctrine.html#configuration-overview>`_):
+Doctrine ORM Configuration
+--------------------------
 
-.. code-block:: yaml
+Add these bundles in the config mapping definition (or enable `auto_mapping`_)::
 
     # config/packages/doctrine.yaml
 
@@ -95,44 +96,130 @@ Add these bundles in the config mapping definition (or enable `auto_mapping <htt
             entity_managers:
                 default:
                     mappings:
-                        ApplicationSonataCommentBundle: ~
+                        FOSCommentBundle: ~
                         SonataCommentBundle: ~
 
-        dbal:
-            types:
-                json: Sonata\Doctrine\Types\JsonType
+And then create the corresponding entities, ``src/Entity/SonataCommentComment``::
 
-Extending the Bundle
---------------------
+    // src/Entity/SonataCommentComment.php
 
-At this point, the bundle is functional, but not quite ready yet. You need to
-generate the correct entities for the media:
+    use Doctrine\ORM\Mapping as ORM;
+    use Sonata\CommentBundle\Entity\BaseComment;
 
-.. code-block:: bash
+    /**
+     * @ORM\Entity
+     * @ORM\Table(name="comment__comment")
+     */
+    class SonataCommentComment extends BaseComment
+    {
+        /**
+         * @ORM\Id
+         * @ORM\GeneratedValue
+         * @ORM\Column(type="integer")
+         */
+        protected $id;
+    }
 
-    bin/console sonata:easy-extends:generate SonataCommentBundle --dest=src --namespace_prefix=App
+and ``src/Entity/SonataCommentThread``::
 
-With provided parameters, the files are generated in ``src/Application/Sonata/CommentBundle``.
+    // src/Entity/SonataCommentThread.php
 
-.. note::
+    use Doctrine\ORM\Mapping as ORM;
+    use Sonata\CommentBundle\Entity\BaseThread;
 
-    The command will generate domain objects in an ``App\Application`` namespace.
-    So you can point entities' associations to a global and common namespace.
-    This will make Entities sharing easier as your models will allow to
-    point to a global namespace. For instance the user will be
-    ``App\Application\Sonata\CommentBundle\Entity\Thread``.
+    /**
+     * @ORM\Entity
+     * @ORM\Table(name="comment__thread")
+     */
+    class SonataCommentThread extends BaseThread
+    {
+        /**
+         * @ORM\Id
+         * @ORM\GeneratedValue
+         * @ORM\Column(type="integer")
+         */
+        protected $id;
+    }
 
-Now, add the new ``Application`` Bundle into the ``bundles.php``::
-
-    // config/bundles.php
-
-    return [
-        // ...
-        App\Application\Sonata\CommentBundle\ApplicationSonataCommentBundle::class => ['all' => true],
-    ];
-
-Update your schema database schema afterwards:
-
-.. code-block:: bash
+The only thing left is to update your schema::
 
     bin/console doctrine:schema:update --force
+
+Doctrine MongoDB Configuration
+------------------------------
+
+You have to create the corresponding documents, ``src/Document/SonataCommentComment``::
+
+    // src/Document/SonataCommentComment.php
+
+    use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+    use Sonata\CommentBundle\Document\BaseComment;
+
+    /**
+     * @MongoDB\Document
+     */
+    class SonataCommentComment extends BaseComment
+    {
+        /**
+         * @MongoDB\Id
+         */
+        protected $id;
+    }
+
+and ``src/Document/SonataCommentThread``::
+
+    // src/Document/SonataCommentThread.php
+
+    use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+    use Sonata\CommentBundle\Document\BaseThread;
+
+    /**
+     * @MongoDB\Document
+     */
+    class SonataCommentThread extends BaseThread
+    {
+        /**
+         * @MongoDB\Id
+         */
+        protected $id;
+    }
+
+Then configure ``SonataCommentBundle`` to use the newly generated classes::
+
+    # config/packages/sonata_comment.yaml
+
+    sonata_comment:
+        manager_type: mongodb
+        class:
+            comment: App\Document\SonataCommentComment
+            thread: App\Document\SonataCommentThread
+
+And ``FosCommentBundle``::
+
+    # config/packages/fos_comment.yaml
+
+    fos_comment:
+        db_driver: mongodb
+        class:
+            model:
+                comment: App\Document\SonataCommentComment
+                thread: App\Document\SonataCommentThread
+
+Next Steps
+----------
+
+At this point, your Symfony installation should be fully functional, without errors
+showing up from SonataCommentBundle. If, at this point or during the installation,
+you come across any errors, don't panic:
+
+    - Read the error message carefully. Try to find out exactly which bundle is causing the error.
+      Is it SonataCommentBundle or one of the dependencies?
+    - Make sure you followed all the instructions correctly, for both SonataCommentBundle and its dependencies.
+    - Still no luck? Try checking the project's `open issues on GitHub`_.
+
+After you have successfully installed the above bundles you need to configure SonataCommentBundle.
+All that is needed to quickly set up SonataCommentBundle is described in the :doc:`usage` chapter.
+
+.. _`open issues on GitHub`: https://github.com/sonata-project/SonataCommentBundle/issues
+.. _FOSCommentBundle: https://github.com/FriendsOfSymfony/FOSCommentBundle
+.. _`auto_mapping`: http://symfony.com/doc/4.4/reference/configuration/doctrine.html#configuration-overviews
