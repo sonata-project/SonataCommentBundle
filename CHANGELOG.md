@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.2.0](https://github.com/sonata-project/SonataCommentBundle/compare/3.1.1...3.2.0) - 2020-06-29
+### Removed
+- [[#185](https://github.com/sonata-project/SonataCommentBundle/pull/185)]
+  Remove SonataCoreBundle dependencies
+([@wbloszyk](https://github.com/wbloszyk))
+- [[#155](https://github.com/sonata-project/SonataCommentBundle/pull/155)]
+  Support for Symfony < 3.4 ([@franmomu](https://github.com/franmomu))
+- [[#155](https://github.com/sonata-project/SonataCommentBundle/pull/155)]
+  Support for Symfony >= 4, < 4.2 ([@franmomu](https://github.com/franmomu))
+
 ## [3.1.1](https://github.com/sonata-project/SonataCommentBundle/compare/3.1.0...3.1.1) - 2018-05-11
 ### Added
 
