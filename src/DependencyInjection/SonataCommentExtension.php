@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace Sonata\CommentBundle\DependencyInjection;
 
-use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector;
+use FOS\CommentBundle\Model\SignedCommentInterface;
+use Sonata\Doctrine\Mapper\Builder\OptionsBuilder;
+use Sonata\Doctrine\Mapper\DoctrineCollector;
+use Sonata\EasyExtendsBundle\Mapper\DoctrineCollector as DeprecatedDoctrineCollector;
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -63,7 +66,12 @@ class SonataCommentExtension extends Extension
 
         $config = $this->addDefaults($config, $modelType);
 
-        $this->registerDoctrineMapping($config, $container);
+        if ($this->hasBundle('SonataDoctrineBundle', $container)) {
+            $this->registerSonataDoctrineMapping($config, $container, $modelType);
+        } else {
+            // NEXT MAJOR: Remove next line and throw error when not registering SonataDoctrineBundle
+            $this->registerDoctrineMapping($config, $container);
+        }
 
         $this->configureAdminClass($config, $container);
         $this->configureClass($config, $container, $modelType);
@@ -79,7 +87,8 @@ class SonataCommentExtension extends Extension
             $commentClass = $container->getParameter(sprintf('sonata.comment.class.comment.%s', $modelType));
             $isSignedInterface = is_subclass_of($commentClass, 'FOS\CommentBundle\Model\SignedCommentInterface');
 
-            if ($isSignedInterface) {
+            // NEXT MAJOR: Remove this if, it is registering all mapping on `registerSonataDoctrineMapping`
+            if ($isSignedInterface && !$this->hasBundle('SonataDoctrineBundle', $container)) {
                 $this->registerSonataUserDoctrineMapping($config, $container, $modelType);
             }
         }
@@ -174,18 +183,25 @@ class SonataCommentExtension extends Extension
     }
 
     /**
+     * NEXT_MAJOR: Remove this method.
+     *
      * @param array            $config    A configuration array
      * @param ContainerBuilder $container Symfony container builder
      */
     public function registerDoctrineMapping(array $config, ContainerBuilder $container): void
     {
+        @trigger_error(
+            'Using SonataEasyExtendsBundle is deprecated since sonata-project/comment-bundle 3.x. Please register SonataDoctrineBundle as a bundle instead.',
+            E_USER_DEPRECATED
+        );
+
         foreach ($config['class'] as $class) {
             if (!class_exists($class)) {
                 return;
             }
         }
 
-        $collector = DoctrineCollector::getInstance();
+        $collector = DeprecatedDoctrineCollector::getInstance();
 
         // Comment.
 
@@ -219,19 +235,26 @@ class SonataCommentExtension extends Extension
     }
 
     /**
+     * NEXT_MAJOR: Remove this method.
+     *
      * @param array            $config    A configuration array
      * @param ContainerBuilder $container Symfony container builder
      * @param string           $modelType Configuration model type
      */
     public function registerSonataUserDoctrineMapping(array $config, ContainerBuilder $container, $modelType): void
     {
+        @trigger_error(
+            'Using SonataEasyExtendsBundle is deprecated since sonata-project/comment-bundle 3.x. Please register SonataDoctrineBundle as a bundle instead.',
+            E_USER_DEPRECATED
+        );
+
         foreach ($config['class'] as $class) {
             if (!class_exists($class)) {
                 return;
             }
         }
 
-        $collector = DoctrineCollector::getInstance();
+        $collector = DeprecatedDoctrineCollector::getInstance();
 
         $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
 
@@ -255,5 +278,51 @@ class SonataCommentExtension extends Extension
         $bundles = $container->getParameter('kernel.bundles');
 
         return isset($bundles[$name]);
+    }
+
+    private function registerSonataDoctrineMapping(array $config, ContainerBuilder $container, string $modelType): void
+    {
+        foreach ($config['class'] as $class) {
+            if (!class_exists($class)) {
+                return;
+            }
+        }
+
+        $collector = DoctrineCollector::getInstance();
+
+        $collector->addAssociation(
+            $config['class']['comment'],
+            'mapManyToOne',
+            OptionsBuilder::createManyToOne('thread', $config['class']['thread'])
+        );
+
+        if ($this->hasBundle('SonataClassificationBundle', $container)) {
+            $collector->addAssociation(
+                $config['class']['comment'],
+                'mapManyToOne',
+                OptionsBuilder::createManyToOne('category', $config['class']['category'])
+                    ->cascade(['persist'])
+                    ->addJoin([
+                        'name' => 'category_id',
+                        'referencedColumnName' => 'id',
+                        'onDelete' => 'CASCADE',
+                        'onUpdate' => 'CASCADE',
+                    ])
+            );
+        }
+
+        if ($this->hasBundle('SonataUserBundle', $container)) {
+            $commentClass = $container->getParameter(sprintf('sonata.comment.class.comment.%s', $modelType));
+
+            if (is_subclass_of($commentClass, SignedCommentInterface::class)) {
+                $userClass = $container->getParameter(sprintf('sonata.user.admin.user.%s', $modelType));
+
+                $collector->addAssociation(
+                    $config['class']['comment'],
+                    'mapManyToOne',
+                    OptionsBuilder::createManyToOne('author', $userClass)
+                );
+            }
+        }
     }
 }
