@@ -192,7 +192,7 @@ class SonataCommentExtension extends Extension
     {
         @trigger_error(
             'Using SonataEasyExtendsBundle is deprecated since sonata-project/comment-bundle 3.x. Please register SonataDoctrineBundle as a bundle instead.',
-            E_USER_DEPRECATED
+            \E_USER_DEPRECATED
         );
 
         foreach ($config['class'] as $class) {
@@ -245,7 +245,7 @@ class SonataCommentExtension extends Extension
     {
         @trigger_error(
             'Using SonataEasyExtendsBundle is deprecated since sonata-project/comment-bundle 3.x. Please register SonataDoctrineBundle as a bundle instead.',
-            E_USER_DEPRECATED
+            \E_USER_DEPRECATED
         );
 
         foreach ($config['class'] as $class) {
