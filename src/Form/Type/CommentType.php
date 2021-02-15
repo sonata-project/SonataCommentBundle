@@ -76,7 +76,7 @@ class CommentType extends AbstractType
     /**
      * NEXT_MAJOR: remove this method.
      *
-     * @deprecated since sonata-project/comment-bundle 3.x, to be removed in version 4.0.
+     * @deprecated since sonata-project/comment-bundle 3.3, to be removed in version 4.0.
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver): void
     {
@@ -112,7 +112,7 @@ class CommentType extends AbstractType
     /**
      * NEXT_MAJOR: remove this method.
      *
-     * @deprecated since sonata-project/comment-bundle 3.x, to be removed in version 4.0.
+     * @deprecated since sonata-project/comment-bundle 3.3, to be removed in version 4.0.
      */
     public function getName(): string
     {
