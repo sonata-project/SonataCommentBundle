@@ -42,6 +42,18 @@ class SonataCommentExtension extends Extension
         $configuration = new Configuration();
         $config = $processor->processConfiguration($configuration, $configs);
 
+        if ('orm' === $config['manager_type']) {
+            $modelType = 'entity';
+        } elseif ('mongodb' === $config['manager_type']) {
+            $modelType = 'document';
+        }
+
+        $config = $this->addDefaults($config, $modelType);
+        $this->configureAdminClass($config, $container);
+        $this->configureClass($config, $container, $modelType);
+        $this->configureController($config, $container);
+        $this->configureTranslationDomain($config, $container);
+
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('event.xml');
         $loader->load('form.xml');
@@ -58,12 +70,6 @@ class SonataCommentExtension extends Extension
             $loader->load(sprintf('admin_%s.xml', $config['manager_type']));
         }
 
-        if ('orm' === $config['manager_type']) {
-            $modelType = 'entity';
-        } elseif ('mongodb' === $config['manager_type']) {
-            $modelType = 'document';
-        }
-
         $config = $this->addDefaults($config, $modelType);
 
         if ($this->hasBundle('SonataDoctrineBundle', $container)) {
@@ -73,10 +79,6 @@ class SonataCommentExtension extends Extension
             $this->registerDoctrineMapping($config, $container);
         }
 
-        $this->configureAdminClass($config, $container);
-        $this->configureClass($config, $container, $modelType);
-        $this->configureController($config, $container);
-        $this->configureTranslationDomain($config, $container);
         $this->configureBlocksEvents($container);
         $this->configureFormTypes($config, $container);
         $this->configureNotesValues($config, $container);
