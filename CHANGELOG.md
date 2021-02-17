@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [3.3.1](https://github.com/sonata-project/SonataCommentBundle/compare/3.3.0...3.3.1) - 2021-02-16
+### Fixed
+- [[#272](https://github.com/sonata-project/SonataCommentBundle/pull/272)] Fixed missing "sonata.comment.*" parameters ([@wbloszyk](https://github.com/wbloszyk))
+
 ## [3.3.0](https://github.com/sonata-project/SonataCommentBundle/compare/3.2.0...3.3.0) - 2021-02-15
 ### Added
 - [[#234](https://github.com/sonata-project/SonataCommentBundle/pull/234)] Added Dutch translations ([@zghosts](https://github.com/zghosts))
