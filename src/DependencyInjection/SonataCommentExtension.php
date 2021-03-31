@@ -156,8 +156,7 @@ class SonataCommentExtension extends Extension
     {
         $container
             ->getDefinition('sonata.comment.event.sonata.comment')
-            ->addMethodCall('setBlockService', [new Reference('sonata.comment.block.thread.async')])
-        ;
+            ->addMethodCall('setBlockService', [new Reference('sonata.comment.block.thread.async')]);
     }
 
     /**
@@ -168,8 +167,7 @@ class SonataCommentExtension extends Extension
     {
         $container
             ->getDefinition('sonata.comment.form.comment_status_type')
-            ->replaceArgument(0, $config['class']['comment'])
-        ;
+            ->replaceArgument(0, $config['class']['comment']);
     }
 
     /**
@@ -180,8 +178,7 @@ class SonataCommentExtension extends Extension
     {
         $container
             ->getDefinition('sonata.comment.note.provider')
-            ->replaceArgument(1, $config['notes']['values'])
-        ;
+            ->replaceArgument(1, $config['notes']['values']);
     }
 
     /**
