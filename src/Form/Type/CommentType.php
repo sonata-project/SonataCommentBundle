@@ -69,8 +69,7 @@ class CommentType extends AbstractType
 
         $builder
             ->add('website', UrlType::class, ['required' => false])
-            ->add('email', EmailType::class, ['required' => false])
-        ;
+            ->add('email', EmailType::class, ['required' => false]);
     }
 
     /**
