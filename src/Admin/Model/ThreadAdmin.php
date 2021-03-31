@@ -32,8 +32,7 @@ abstract class ThreadAdmin extends Admin
 
         $formMapper
             ->add('permalink')
-            ->add('isCommentable')
-        ;
+            ->add('isCommentable');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
@@ -46,8 +45,7 @@ abstract class ThreadAdmin extends Admin
 
         $datagridMapper
             ->add('permalink')
-            ->add('isCommentable')
-        ;
+            ->add('isCommentable');
     }
 
     protected function configureListFields(ListMapper $listMapper): void
@@ -61,8 +59,7 @@ abstract class ThreadAdmin extends Admin
         $listMapper
             ->add('permalink', 'text')
             ->add('numComments')
-            ->add('isCommentable', 'boolean', ['editable' => true])
-        ;
+            ->add('isCommentable', 'boolean', ['editable' => true]);
     }
 
     protected function configureSideMenu(MenuItemInterface $menu, $action, ?AdminInterface $childAdmin = null): void

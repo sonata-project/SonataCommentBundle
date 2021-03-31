@@ -35,8 +35,7 @@ abstract class CommentAdmin extends Admin
             ])
             ->add('private', CheckboxType::class, [
                 'required' => false,
-            ])
-        ;
+            ]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
@@ -47,8 +46,7 @@ abstract class CommentAdmin extends Admin
             ->add('email')
             ->add('website')
             ->add('state')
-            ->add('private')
-        ;
+            ->add('private');
     }
 
     protected function configureListFields(ListMapper $listMapper): void
@@ -59,7 +57,6 @@ abstract class CommentAdmin extends Admin
             ->add('createdAt', 'datetime')
             ->add('note', 'float')
             ->add('state', 'string', ['template' => '@SonataComment/CommentAdmin/list_status.html.twig'])
-            ->add('private', 'boolean', ['editable' => true])
-        ;
+            ->add('private', 'boolean', ['editable' => true]);
     }
 }
