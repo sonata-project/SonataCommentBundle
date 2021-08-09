@@ -1,147 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-    <file source-language="en" target-language="fr" datatype="plaintext" original="">
-        <body>
-            <trans-unit id="conversation">
-                <source>conversation</source>
-                <target>Conversation</target>
-            </trans-unit>
-            <trans-unit id="form_label_body">
-                <source>form_label_body</source>
-                <target>Votre message</target>
-            </trans-unit>
-            <trans-unit id="form_label_website">
-                <source>form_label_website</source>
-                <target>URL de votre site</target>
-            </trans-unit>
-            <trans-unit id="form_label_email">
-                <source>form_label_email</source>
-                <target>Votre adresse e-mail</target>
-            </trans-unit>
-            <trans-unit id="form_label_note">
-                <source>form_label_note</source>
-                <target>Votre note</target>
-            </trans-unit>
-            <trans-unit id="form_label_author_name">
-                <source>form_label_author_name</source>
-                <target>Votre nom</target>
-            </trans-unit>
-            <trans-unit id="sonata_comment_admin_edit">
-                <source>sonata_comment_admin_edit</source>
-                <target>Editer</target>
-            </trans-unit>
-            <trans-unit id="sonata_comment_admin_view_comments">
-                <source>sonata_comment_admin_view_comments</source>
-                <target>Voir les commentaires</target>
-            </trans-unit>
-            <trans-unit id="sonata_comment_note_given">
-                <source>sonata_comment_note_given</source>
-                <target>Note donnée : </target>
-            </trans-unit>
-            <trans-unit id="form.label_id">
-                <source>form.label_id</source>
-                <target>Identifiant</target>
-            </trans-unit>
-            <trans-unit id="form.label_body">
-                <source>form.label_body</source>
-                <target>Message</target>
-            </trans-unit>
-            <trans-unit id="form.label_email">
-                <source>form.label_email</source>
-                <target>Adresse e-mail</target>
-            </trans-unit>
-            <trans-unit id="form.label_website">
-                <source>form.label_website</source>
-                <target>URL du site web</target>
-            </trans-unit>
-            <trans-unit id="form.label_state">
-                <source>form.label_state</source>
-                <target>Etat</target>
-            </trans-unit>
-            <trans-unit id="form.label_permalink">
-                <source>form.label_permalink</source>
-                <target>Permalien</target>
-            </trans-unit>
-            <trans-unit id="form.label_created_at">
-                <source>form.label_created_at</source>
-                <target>Date de création</target>
-            </trans-unit>
-            <trans-unit id="form.label_is_commentable">
-                <source>form.label_is_commentable</source>
-                <target>Commentaires actifs</target>
-            </trans-unit>
-            <trans-unit id="form.label_category">
-                <source>form.label_category</source>
-                <target>Catégorie</target>
-            </trans-unit>
-            <trans-unit id="list.label_id">
-                <source>list.label_id</source>
-                <target>Identifiant</target>
-            </trans-unit>
-            <trans-unit id="list.label_body">
-                <source>list.label_body</source>
-                <target>Message</target>
-            </trans-unit>
-            <trans-unit id="list.label_created_at">
-                <source>list.label_created_at</source>
-                <target>Date de création</target>
-            </trans-unit>
-            <trans-unit id="list.label_permalink">
-                <source>list.label_permalink</source>
-                <target>Permalien</target>
-            </trans-unit>
-            <trans-unit id="list.label_is_commentable">
-                <source>list.label_is_commentable</source>
-                <target>Commentaires actifs</target>
-            </trans-unit>
-            <trans-unit id="form.label_private">
-                <source>form.label_private</source>
-                <target>Privé</target>
-            </trans-unit>
-            <trans-unit id="list.label_private">
-                <source>list.label_private</source>
-                <target>Privé</target>
-            </trans-unit>
-            <trans-unit id="list.label_average_note">
-                <source>list.label_average_note</source>
-                <target>Note moyenne</target>
-            </trans-unit>
-            <trans-unit id="list.label_note">
-                <source>list.label_note</source>
-                <target>Note</target>
-            </trans-unit>
-            <trans-unit id="list.label_state">
-                <source>list.label_state</source>
-                <target>État</target>
-            </trans-unit>
-            <trans-unit id="list.label_num_comments">
-                <source>list.label_num_comments</source>
-                <target>Nombre de commentaires</target>
-            </trans-unit>
-            <trans-unit id="list.label_category">
-                <source>list.label_category</source>
-                <target>Catégorie</target>
-            </trans-unit>
-            <trans-unit id="breadcrumb.link_thread_list">
-                <source>breadcrumb.link_thread_list</source>
-                <target>Conversation</target>
-            </trans-unit>
-            <trans-unit id="breadcrumb.link_comment_list">
-                <source>breadcrumb.link_comment_list</source>
-                <target>Liste des commentaires</target>
-            </trans-unit>
-            <trans-unit id="moderate">
-                <source>moderate</source>
-                <target>Modéré</target>
-            </trans-unit>
-            <trans-unit id="invalid">
-                <source>invalid</source>
-                <target>Invalide</target>
-            </trans-unit>
-            <trans-unit id="valid">
-                <source>valid</source>
-                <target>Valide</target>
-            </trans-unit>
-        </body>
-    </file>
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <body>
+      <trans-unit id="conversation">
+        <source>conversation</source>
+        <target>Conversation</target>
+      </trans-unit>
+      <trans-unit id="form_label_body">
+        <source>form_label_body</source>
+        <target>Votre message</target>
+      </trans-unit>
+      <trans-unit id="form_label_website">
+        <source>form_label_website</source>
+        <target>URL de votre site</target>
+      </trans-unit>
+      <trans-unit id="form_label_email">
+        <source>form_label_email</source>
+        <target>Votre adresse e-mail</target>
+      </trans-unit>
+      <trans-unit id="form_label_note">
+        <source>form_label_note</source>
+        <target>Votre note</target>
+      </trans-unit>
+      <trans-unit id="form_label_author_name">
+        <source>form_label_author_name</source>
+        <target>Votre nom</target>
+      </trans-unit>
+      <trans-unit id="sonata_comment_admin_edit">
+        <source>sonata_comment_admin_edit</source>
+        <target>Editer</target>
+      </trans-unit>
+      <trans-unit id="sonata_comment_admin_view_comments">
+        <source>sonata_comment_admin_view_comments</source>
+        <target>Voir les commentaires</target>
+      </trans-unit>
+      <trans-unit id="sonata_comment_note_given">
+        <source>sonata_comment_note_given</source>
+        <target>Note donnée : </target>
+      </trans-unit>
+      <trans-unit id="form.label_id">
+        <source>form.label_id</source>
+        <target>Identifiant</target>
+      </trans-unit>
+      <trans-unit id="form.label_body">
+        <source>form.label_body</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="form.label_email">
+        <source>form.label_email</source>
+        <target>Adresse e-mail</target>
+      </trans-unit>
+      <trans-unit id="form.label_website">
+        <source>form.label_website</source>
+        <target>URL du site web</target>
+      </trans-unit>
+      <trans-unit id="form.label_state">
+        <source>form.label_state</source>
+        <target>Etat</target>
+      </trans-unit>
+      <trans-unit id="form.label_permalink">
+        <source>form.label_permalink</source>
+        <target>Permalien</target>
+      </trans-unit>
+      <trans-unit id="form.label_created_at">
+        <source>form.label_created_at</source>
+        <target>Date de création</target>
+      </trans-unit>
+      <trans-unit id="form.label_is_commentable">
+        <source>form.label_is_commentable</source>
+        <target>Commentaires actifs</target>
+      </trans-unit>
+      <trans-unit id="form.label_category">
+        <source>form.label_category</source>
+        <target>Catégorie</target>
+      </trans-unit>
+      <trans-unit id="list.label_id">
+        <source>list.label_id</source>
+        <target>Identifiant</target>
+      </trans-unit>
+      <trans-unit id="list.label_body">
+        <source>list.label_body</source>
+        <target>Message</target>
+      </trans-unit>
+      <trans-unit id="list.label_created_at">
+        <source>list.label_created_at</source>
+        <target>Date de création</target>
+      </trans-unit>
+      <trans-unit id="list.label_permalink">
+        <source>list.label_permalink</source>
+        <target>Permalien</target>
+      </trans-unit>
+      <trans-unit id="list.label_is_commentable">
+        <source>list.label_is_commentable</source>
+        <target>Commentaires actifs</target>
+      </trans-unit>
+      <trans-unit id="form.label_private">
+        <source>form.label_private</source>
+        <target>Privé</target>
+      </trans-unit>
+      <trans-unit id="list.label_private">
+        <source>list.label_private</source>
+        <target>Privé</target>
+      </trans-unit>
+      <trans-unit id="list.label_average_note">
+        <source>list.label_average_note</source>
+        <target>Note moyenne</target>
+      </trans-unit>
+      <trans-unit id="list.label_note">
+        <source>list.label_note</source>
+        <target>Note</target>
+      </trans-unit>
+      <trans-unit id="list.label_state">
+        <source>list.label_state</source>
+        <target>État</target>
+      </trans-unit>
+      <trans-unit id="list.label_num_comments">
+        <source>list.label_num_comments</source>
+        <target>Nombre de commentaires</target>
+      </trans-unit>
+      <trans-unit id="list.label_category">
+        <source>list.label_category</source>
+        <target>Catégorie</target>
+      </trans-unit>
+      <trans-unit id="breadcrumb.link_thread_list">
+        <source>breadcrumb.link_thread_list</source>
+        <target>Conversation</target>
+      </trans-unit>
+      <trans-unit id="breadcrumb.link_comment_list">
+        <source>breadcrumb.link_comment_list</source>
+        <target>Liste des commentaires</target>
+      </trans-unit>
+      <trans-unit id="moderate">
+        <source>moderate</source>
+        <target>Modéré</target>
+      </trans-unit>
+      <trans-unit id="invalid">
+        <source>invalid</source>
+        <target>Invalide</target>
+      </trans-unit>
+      <trans-unit id="valid">
+        <source>valid</source>
+        <target>Valide</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
