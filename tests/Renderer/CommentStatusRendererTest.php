@@ -32,16 +32,16 @@ class CommentStatusRendererTest extends TestCase
         $commentStatusRenderer = new CommentStatusRenderer();
 
         $comment = new \DateTime();
-        $this->assertFalse($commentStatusRenderer->handlesObject($comment));
+        static::assertFalse($commentStatusRenderer->handlesObject($comment));
 
         $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
-        $this->assertTrue($commentStatusRenderer->handlesObject($comment));
+        static::assertTrue($commentStatusRenderer->handlesObject($comment));
 
         foreach (['moderate', 'invalid', 'valid'] as $correctStatusType) {
-            $this->assertTrue($commentStatusRenderer->handlesObject($comment, $correctStatusType));
+            static::assertTrue($commentStatusRenderer->handlesObject($comment, $correctStatusType));
         }
 
-        $this->assertFalse($commentStatusRenderer->handlesObject($comment, 'statusName'));
+        static::assertFalse($commentStatusRenderer->handlesObject($comment, 'statusName'));
     }
 
     /**
@@ -52,9 +52,9 @@ class CommentStatusRendererTest extends TestCase
         $commentStatusRenderer = new CommentStatusRenderer();
 
         $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
-        $comment->expects($this->once())->method('getState')->willReturn(array_rand(Comment::getStateList()));
+        $comment->expects(static::once())->method('getState')->willReturn(array_rand(Comment::getStateList()));
 
-        $this->assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), ['success', 'info', 'important']);
+        static::assertContains($commentStatusRenderer->getStatusClass($comment, '', 'error'), ['success', 'info', 'important']);
     }
 
     /**
@@ -65,8 +65,8 @@ class CommentStatusRendererTest extends TestCase
         $commentStatusRenderer = new CommentStatusRenderer();
 
         $comment = $this->createMock('Sonata\CommentBundle\Model\Comment');
-        $comment->expects($this->once())->method('getState')->willReturn(8);
+        $comment->expects(static::once())->method('getState')->willReturn(8);
 
-        $this->assertSame('default_value', $commentStatusRenderer->getStatusClass($comment, 'statusName', 'default_value'));
+        static::assertSame('default_value', $commentStatusRenderer->getStatusClass($comment, 'statusName', 'default_value'));
     }
 }
