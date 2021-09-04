@@ -45,15 +45,15 @@ class BaseCommentTest extends TestCase
         $comment->setThread($thread);
 
         // Then
-        $this->assertSame('Comment text', $comment->getBody(), 'Should return correct comment body');
-        $this->assertSame('http://www.example.com', $comment->getWebsite(), 'Should return correct comment author website');
-        $this->assertSame('test@example.com', $comment->getEmail(), 'Should return correct comment author email address');
-        $this->assertSame(0.20, $comment->getNote(), 'Should return correct comment note');
-        $this->assertTrue($comment->isPrivate(), 'Should return that comment is flagged as private');
-        $this->assertSame('My name', $comment->getAuthorName(), 'Should return correct comment author name');
-        $this->assertSame($date, $comment->getCreatedAt(), 'Should return correct creation date');
+        static::assertSame('Comment text', $comment->getBody(), 'Should return correct comment body');
+        static::assertSame('http://www.example.com', $comment->getWebsite(), 'Should return correct comment author website');
+        static::assertSame('test@example.com', $comment->getEmail(), 'Should return correct comment author email address');
+        static::assertSame(0.20, $comment->getNote(), 'Should return correct comment note');
+        static::assertTrue($comment->isPrivate(), 'Should return that comment is flagged as private');
+        static::assertSame('My name', $comment->getAuthorName(), 'Should return correct comment author name');
+        static::assertSame($date, $comment->getCreatedAt(), 'Should return correct creation date');
 
-        $this->assertSame($thread, $comment->getThread(), 'Should return correct thread');
-        $this->assertSame('my-comment-thread', $comment->getThread()->getId(), 'Should return correct thread identifier');
+        static::assertSame($thread, $comment->getThread(), 'Should return correct thread');
+        static::assertSame('my-comment-thread', $comment->getThread()->getId(), 'Should return correct thread identifier');
     }
 }

@@ -34,7 +34,7 @@ class NoteProviderTest extends TestCase
         $commentManager = $this->getMockBuilder('Sonata\CommentBundle\Manager\CommentManager')
             ->disableOriginalConstructor()
             ->getMock();
-        $commentManager->expects($this->once())->method('findAverageNote')->willReturn(3.5);
+        $commentManager->expects(static::once())->method('findAverageNote')->willReturn(3.5);
 
         $provider = new NoteProvider($commentManager, [0, 1, 2, 3]);
 
@@ -42,7 +42,7 @@ class NoteProviderTest extends TestCase
         $averageNote = $provider->findAverageNote($thread);
 
         // Then
-        $this->assertSame(3.5, $averageNote, 'Note should be the same as comment manager query returns');
+        static::assertSame(3.5, $averageNote, 'Note should be the same as comment manager query returns');
     }
 
     /**
@@ -63,6 +63,6 @@ class NoteProviderTest extends TestCase
         $notes = $provider->getValues();
 
         // Then
-        $this->assertSame([1, 2, 3], $notes, 'Should return notes given in constructor');
+        static::assertSame([1, 2, 3], $notes, 'Should return notes given in constructor');
     }
 }

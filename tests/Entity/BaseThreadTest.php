@@ -41,12 +41,12 @@ class BaseThreadTest extends TestCase
         $thread->setPermalink('my-custom-permalink');
 
         // Then
-        $this->assertSame('my-comment-thread', $thread->getId(), 'Should return correct thread identifier');
-        $this->assertTrue($thread->getIsCommentable(), 'Should return if thread is commentable');
-        $this->assertSame(0.40, $thread->getAverageNote(), 'Should return correct average note');
-        $this->assertSame($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
-        $this->assertSame(5, $thread->getNumComments(), 'Should return correct number of comments');
-        $this->assertSame('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
+        static::assertSame('my-comment-thread', $thread->getId(), 'Should return correct thread identifier');
+        static::assertTrue($thread->getIsCommentable(), 'Should return if thread is commentable');
+        static::assertSame(0.40, $thread->getAverageNote(), 'Should return correct average note');
+        static::assertSame($lastCommentDate, $thread->getLastCommentAt(), 'Should return correct last commented date');
+        static::assertSame(5, $thread->getNumComments(), 'Should return correct number of comments');
+        static::assertSame('my-custom-permalink', $thread->getPermalink(), 'Should return correct thread permalink');
     }
 
     /**
@@ -55,18 +55,18 @@ class BaseThreadTest extends TestCase
     public function testCategoryGetters(): void
     {
         if (!interface_exists('Sonata\\ClassificationBundle\\Model\\CategoryInterface')) {
-            $this->markTestSkipped('Sonata\ClassificationBundle\Model\CategoryInterface does not exist');
+            static::markTestSkipped('Sonata\ClassificationBundle\Model\CategoryInterface does not exist');
         }
 
         // Given
         $category = $this->createMock('Sonata\ClassificationBundle\Model\CategoryInterface');
-        $category->expects($this->once())->method('getName')->willReturn('my-category');
+        $category->expects(static::once())->method('getName')->willReturn('my-category');
 
         $thread = new BaseThread();
         $thread->setId('my-comment-thread');
         $thread->setCategory($category);
 
         // Then
-        $this->assertSame('my-category', $thread->getCategory()->getName(), 'Should return correct category name');
+        static::assertSame('my-category', $thread->getCategory()->getName(), 'Should return correct category name');
     }
 }
